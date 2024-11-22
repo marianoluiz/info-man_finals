@@ -1,3 +1,11 @@
 # Personal Data Forms Website
 
-Tech stacks:
+### Tech stacks:
+
+- MySql
+- Hibernate / HQL
+- Java
+- Spring Boot
+- React
+- Scss
+- Vite
