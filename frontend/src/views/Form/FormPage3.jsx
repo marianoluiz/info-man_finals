@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const FormPage3 = () => {
-  const navigate = useNavigate();
+const FormPage3 = ({nextPage}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/form-complete');
+    nextPage();
   };
 
   return (

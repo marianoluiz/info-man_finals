@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const FormPage2 = () => {
-  const navigate = useNavigate();
+const FormPage2 = ({nextPage}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/form-page-3');
+    nextPage();
   };
 
   return (
