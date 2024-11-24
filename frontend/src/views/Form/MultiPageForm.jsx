@@ -3,6 +3,7 @@ import FormPage1 from './FormPage1';
 import FormPage2 from './FormPage2';
 import FormPage3 from './FormPage3';
 import FormComplete from './FormComplete';
+import MainLayout from '../../layout/MainLayout';
 
 const MultiPageForm = () => {
   const [ page, setPage ] = useState(1);
@@ -26,10 +27,10 @@ const MultiPageForm = () => {
   };
 
   return(
-    <> 
+    <MainLayout> 
       <h1>MultiPage Form</h1>
       {renderPage()}
-    </>
+    </MainLayout>
   )
 
 }
