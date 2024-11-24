@@ -15,3 +15,5 @@
 - Scss - css pre-processor
 - Bootstrap - frontend css framework
 - Vite - frontend build tool
+
+EXPECTED DL: 12/16/2024
