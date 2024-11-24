@@ -1,0 +1,16 @@
+// frontend/src/styles/main.scss
+
+@import 'variables';
+
+// CSS Reset
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Base Styles
+body {
+  font-family: $font-sans;
+  color: $text-color;
+}
