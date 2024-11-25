@@ -27,8 +27,7 @@ const MultiPageForm = () => {
   };
 
   return(
-    <MainLayout> 
-      <h1>MultiPage Form</h1>
+    <MainLayout>
       {renderPage()}
     </MainLayout>
   )
