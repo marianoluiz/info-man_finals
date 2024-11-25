@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/Form.scss'
 
 const FormPage1 = ({nextPage}) => {
 
@@ -8,7 +9,7 @@ const FormPage1 = ({nextPage}) => {
   };
   
   return (
-    <div>
+    <div className='form'>
       <h1>Form Page 1</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>

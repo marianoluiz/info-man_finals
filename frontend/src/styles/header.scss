@@ -2,7 +2,7 @@
 
 .navbar {
   background-color: $primary-color;
-  color: $secondary-color;
+  color: $secondary-color; 
 
   .navbar-brand,
   .nav-link {
@@ -22,12 +22,8 @@
   }
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
   border-color: transparent;
   color: rgb(100, 193, 224);
   background-color: $secondary-color;
-}
-
-#navbarNav {
-  margin-left: 12px;
-}
+} */

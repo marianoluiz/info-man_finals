@@ -1,10 +1,76 @@
 @import 'variables';
 
-.home-container {
-  background-image: url('../img/plm-hero.png');
+.home__bg {
+  background-image: url('../img/plm-hero_1.png');
   background-size: cover;
   background-position: center;
-  
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+}
+
+.home__left {
+  max-width: 40%;
+  margin-left: 10%;
+  padding: 1.5em;
+
+  /* glassmorphism */
+  background: rgba( 255, 255, 255, 0.40 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  @media (max-width: 1024px) {
+    max-width: 80%;
+    min-height: 30%;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+}
+
+.home__main-text {
+  font-family: $font-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+
+}
+
+.home__button {
+  background-color: $primary-color;
+  color: $secondary-color;
+  margin-top: 1.4em;
+  
+  @media (max-width: 1024px) {
+    font-size: 1.2rem;
+    margin-top: 2em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-top: 2em;
+  }
+
+  &:hover {
+    background-color: #004b66;
+    color:  $secondary-color;
+  }
+
+  &.active {
+    color: #004b66;
+  }
+
+  &.disabled {
+    color: rgb(168, 168, 168);
+  }
+
+
 }
