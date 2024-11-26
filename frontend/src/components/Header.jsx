@@ -7,7 +7,7 @@ import '../styles/Header.scss'
 const Header = () => {
   return(
     <header>
-      <nav className="navbar navbar-dark navbar-expand-lg fixed-top py-0 ">
+      <nav className="navbar navbar-dark navbar-expand-lg fixed-top py-0 px-md-5">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/home">
             <img src={plmLogo} height="54px" width="56px" alt="Pamantasan ng Lungsod ng Maynila"/>
@@ -21,11 +21,8 @@ const Header = () => {
                 {/* NavLink has built in active class adder / remover */}
                 <NavLink className="nav-link" aria-current="page" to="/home">Home</NavLink>
               </li>
-              <li className="nav-item me-md-3">
-                <NavLink className="nav-link" to="">Admin</NavLink>
-              </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="">Log in</NavLink>
+                <NavLink className="nav-link disabled" to="">Admin</NavLink>
               </li>
             </ul>
           </div>
