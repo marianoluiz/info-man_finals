@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
-import '../styles/Home.scss'
+import '../styles/home.scss'
 const Home = () => {
   return (
     <>
