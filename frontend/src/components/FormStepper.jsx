@@ -1,27 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/FormStepper.scss';
+import '../styles/formStepper.scss';
 
-const FormStepper = ({ steps, currentStep, onStepClick }) => {
+const FormStepper = ({ formPages, currentPage, onPageClick }) => {
   return (
-    <div className="stepper">
-      {steps.map((step, index) => (
+    <div className="stepper container">
+      {formPages.map((page, index) => (
         <div
           key={index}
-          className={`stepper-item ${index === currentStep ? 'active' : ''}`}
-          onClick={() => onStepClick(index)}
+          className={`stepper-item ${index === currentPage ? 'active' : ''}`}
+          onClick={() => onPageClick(index)}
+          // this onclick puts up the index + 1 to the current page
         >
-          {step}
+          {page}
         </div>
       ))}
     </div>
   );
 };
 
+// required maker?
 FormStepper.propTypes = {
-  steps: PropTypes.arrayOf(PropTypes.string).isRequired,
-  currentStep: PropTypes.number.isRequired,
-  onStepClick: PropTypes.func.isRequired,
+  formPages: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageClick: PropTypes.func.isRequired,
 };
 
 export default FormStepper;

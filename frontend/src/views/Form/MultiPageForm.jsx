@@ -5,18 +5,23 @@ import FormPage3 from './Education';
 import FormComplete from './FormComplete';
 import MainLayout from '../../layout/MainLayout';
 import FormStepper from '../../components/FormStepper';
+import FormBanner from '../../components/FormBanner'
 
 const MultiPageForm = () => {
-  const [ page, setPage ] = useState(1);
 
-  const steps = ['Personal Information', 'Family Background', 'Education', 'Civil Service', 'Work Experience', 'Learning and Development', 'Voluntary Work', 'Others'];
+  // Current Page state
+  const [ currentPage, setCurrentPage ] = useState(1);
 
-  const nextPage = () => setPage(page + 1);
-  const prevPage = () => setPage(page - 1);
-  const goToPage = (pageIndex) => setPage(pageIndex + 1);
+  // Pages of the form
+  const formPages = ['Personal Information', 'Family Background', 'Education', 'Civil Service', 'Work Experience', 'Learning and Development', 'Voluntary Work', 'Others'];
+
+  const nextPage = () => setCurrentPage(currentPage + 1);
+  const prevPage = () => setCurrentPage(currentPage - 1);
+  const goToPage = (pageIndex) => setCurrentPage(pageIndex + 1); 
+  // pages starts with 1 cause there is no case 0 on switch case
 
   const renderPage = () => {
-    switch (page) {
+    switch (currentPage) {
       case 1: 
         return <FormPage1 nextPage = {nextPage}/>;
       case 2:
@@ -32,7 +37,8 @@ const MultiPageForm = () => {
 
   return(
     <MainLayout>
-      <FormStepper steps={steps} currentStep={page - 1} onStepClick={goToPage} />
+      <FormBanner />
+      <FormStepper formPages={formPages} currentPage={currentPage - 1} onPageClick={goToPage} />
       {renderPage()}
     </MainLayout>
   )

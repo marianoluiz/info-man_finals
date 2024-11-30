@@ -2,7 +2,7 @@ import React from "react";
 import '../styles/header.scss';
 import { NavLink } from 'react-router-dom';
 import plmLogo from '../img/plm-logo.png'
-import '../styles/Header.scss'
+import '../styles/header.scss'
 
 const Header = () => {
   return(
