@@ -4,7 +4,7 @@
 
 ###### Backend:
 
-- MySql - db
+- sql - db
 - Hibernate / HQL - orm
 - Java - backend
 - Spring Boot - backend apis

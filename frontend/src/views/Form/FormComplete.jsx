@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../../styles/Form.scss'
+import '../../styles/form.scss'
 
 const FormComplete = () => {
   return (
