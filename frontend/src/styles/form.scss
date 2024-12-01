@@ -2,4 +2,29 @@
 
 .form__disclaimer {
   font-style: italic;
+  font-size: .8rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 1rem;
+}
+
+.form__sub-label {
+  font-size: .65rem;
+  font-style: italic;
+}
+
+.row {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
 }

@@ -6,11 +6,9 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
-  )
-}
+  );
+};
 
 export default MainLayout;
