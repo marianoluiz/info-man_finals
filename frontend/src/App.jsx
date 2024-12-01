@@ -9,7 +9,6 @@ const App = () => {
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       <Route path="/form" element={<MultiPageForm />} />
-
     </Routes>
   );
 };
