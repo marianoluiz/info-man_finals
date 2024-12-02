@@ -12,10 +12,9 @@ const FormPage1 = ({ nextPage }) => {
     <div className="form container">
       <p className="form__disclaimer">*Required Fields</p>
       <form onSubmit={handleSubmit} className="row">
-
         {/* Surname */}
-        <div className="mb-3 row">
-          <label htmlFor="surname" className="col-sm-3 col-form-label">
+        <div className="row">
+          <label htmlFor="surname" className="col-sm-3">
             Last Name*
             <p className="form__sub-label">(ex. Dela Cruz)</p>
           </label>
@@ -27,19 +26,19 @@ const FormPage1 = ({ nextPage }) => {
               name="surname"
               placeholder="Enter your last name"
               pattern="[A-Za-z\s]+"
-              title="Please enter a valid last name without numbers"
+              title="Please enter a valid last name"
               required
             />
           </div>
         </div>
 
         {/* Firstname */}
-        <div className="mb-3 row">
-          <label htmlFor="firstname" className="col-sm-3 col-form-label">
+        <div className=" row">
+          <label htmlFor="firstname" className="col-sm-3">
             First Name*
             <p className="form__sub-label">(ex. Juan)</p>
           </label>
-          <div className="col-sm-9">
+          <div className="col-sm-4">
             <input
               type="text"
               className="form-control"
@@ -47,7 +46,25 @@ const FormPage1 = ({ nextPage }) => {
               name="firstname"
               placeholder="Enter your first name"
               pattern="[A-Za-z\s]+"
-              title="Please enter a valid first name without numbers"
+              title="Please enter a valid first name"
+              required
+            />
+          </div>
+
+          {/*Extension Name*/}
+          <label htmlFor="extension_name" className="col-sm-2">
+            Extension Name
+            <p className="form__sub-label">(ex. Jr./Sr.)</p>
+          </label>
+          <div className="col-sm-3">
+            <input
+              type="text"
+              className="form-control"
+              id="extension_name"
+              name="extension_name"
+              placeholder="Enter your first name"
+              pattern="^[A-Za-z\s.]+$"
+              title="Please enter a valid extension name"
               required
             />
           </div>
@@ -66,7 +83,7 @@ const FormPage1 = ({ nextPage }) => {
               name="middlename"
               placeholder="Enter your middle name"
               pattern="[A-Za-z\s]*"
-              title="Please enter a valid middle name without numbers"
+              title="Please enter a valid middle name"
             />
           </div>
         </div>
@@ -100,7 +117,7 @@ const FormPage1 = ({ nextPage }) => {
               name="pob"
               placeholder="Enter your place of birth"
               pattern="[A-Za-z\s]+"
-              title="Please enter a valid place of birth without numbers"
+              title="Please enter a valid place of birth"
               required
             />
           </div>
@@ -116,7 +133,6 @@ const FormPage1 = ({ nextPage }) => {
               <option value="">Select</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="other">Other</option>
             </select>
           </div>
         </div>
@@ -327,7 +343,7 @@ const FormPage1 = ({ nextPage }) => {
               name="citizenship"
               placeholder="Enter your citizenship"
               pattern="[A-Za-z\s]+"
-              title="Please enter a valid citizenship without numbers"
+              title="Please enter a valid citizenship"
               required
             />
           </div>
