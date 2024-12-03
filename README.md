@@ -15,7 +15,7 @@
 - Bootstrap - frontend css framework
 - Vite - frontend build tool
 
-- ###### Database:
+###### Database:
 - MySQL 
 
 EXPECTED DL: 12/16/2024
