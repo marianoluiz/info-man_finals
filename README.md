@@ -4,7 +4,6 @@
 
 ###### Backend:
 
-- sql - db
 - Hibernate / HQL - orm
 - Java - backend
 - Spring Boot - backend apis
@@ -15,5 +14,8 @@
 - Scss - css pre-processor
 - Bootstrap - frontend css framework
 - Vite - frontend build tool
+
+- ###### Database:
+- MySQL 
 
 EXPECTED DL: 12/16/2024
