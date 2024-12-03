@@ -1,0 +1,83 @@
+              <div className="mb-3 row">
+                  <label
+                      htmlFor={'child_lastname_${index}'}
+                      className="col-sm-3"
+                  >
+                      Child's Last Name
+                  </label>
+                  <div className="col-sm-9">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id={'child_lastname_${index}'}
+                          name={'child_lastname_${index}'}
+                          placeholder="Enter child's last name"
+                      />
+                  </div>
+              </div>
+              <div className="row">
+                  <label
+                      htmlFor={'child_firstname_${index}'}
+                      className="col-sm-3"
+                  >
+                      Child's First Name
+                  </label>
+                  <div className="col-sm-4">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id={'child_firstname_${index}'}
+                          name={'child_firstname_${index}'}
+                          placeholder="Enter child's first name"
+                      />
+                  </div>
+                  <label
+                      htmlFor={'child_extension_${index}'}
+                      className="col-sm-2"
+                  >
+                      Extension Name
+                      <p className="form__sub-label">(Ex. Jr./Sr.)</p>
+                  </label>
+                  <div className="col-sm-3">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id={'child_firstname_${index}'}
+                          name={'child_firstname_${index}'}
+                          placeholder="Enter child's extension name"
+                      />
+                  </div>
+              </div>
+              <div className="mb-3 row">
+                  <label
+                      htmlFor={'child_middle_name_${index}'}
+                      className="col-sm-3"
+                  >
+                      Child's Middle Name
+                  </label>
+                  <div className="col-sm-9">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id={'child_firstname_${index}'}
+                          name={'child_firstname_${index}'}
+                          placeholder="Enter child's middle name"
+                      />
+                  </div>
+              </div>
+              <div className="mb-3 row">
+                  <label
+                      htmlFor={'child_dob_${index}'}
+                      className="col-sm-3"
+                  >
+                      Date of Birth
+                  </label>
+                  <div className="col-sm-9">
+                      <input
+                          type="date"
+                          className="form-control"
+                          id={'child_dob_${index}'}
+                          name={'child_dob_${index}'}
+                      />
+                  </div>
+              </div>

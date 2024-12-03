@@ -6,10 +6,10 @@
   margin: 1rem 0 1.5rem 0;
 }
 
-.form-label {
+/*.form-label {
   display: block;
   font-size: 1rem;
-}
+}*/
 
 .form__sub-label {
   font-size: .65rem;
@@ -27,4 +27,14 @@
 .container {
   padding-left: 0;
   padding-right: 0;
+}
+
+.children__details {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.form__line {
+  height: 1.5px;
+/*  color: #dddddd;*/
 }
