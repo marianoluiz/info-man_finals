@@ -5,23 +5,29 @@
   padding: 1rem 0;
 }
 
-.stepper-item {
+.stepper__item {
   cursor: pointer;
   padding: 5px 10px;
   transition: background-color 0.3s, color 0.3s;
   font-size: .9rem;
-  flex-grow: 1;
-  color: lighten($primary-color, 10%);
+  color: $primary-color-lighter;
+
   
   /* un-active styles  */
-  border-bottom: 1.5px solid #dddddd;
+  border-bottom: 1.5px solid $light-dark-color;
 
   &:hover {
-    background-color: #eeeeee;
+
   }
 
   &.active {
     border: 1px solid rgb(207, 207, 207);
     border-bottom: none;
+    color: $text-secondary-color;
   }
+} 
+
+.stepper__line {
+  flex: 1;
+  border-bottom: 1.5px solid $light-dark-color;
 }

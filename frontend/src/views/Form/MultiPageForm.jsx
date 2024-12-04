@@ -12,16 +12,7 @@ const MultiPageForm = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     // Pages of the form
-    const formPages = [
-        'Personal Information',
-        'Family Background',
-        'Education',
-        'Civil Service',
-        'Work Experience',
-        'Learning and Development',
-        'Voluntary Work',
-        'Others',
-    ];
+    const formPages = ['Personal Information', 'Family Background'];
 
     const nextPage = () => setCurrentPage(currentPage + 1);
     const prevPage = () => setCurrentPage(currentPage - 1);

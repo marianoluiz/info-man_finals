@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/form.scss';
+import { useState } from 'react';
 
 const FormPage1 = ({ nextPage }) => {
     const handleSubmit = (e) => {
@@ -7,13 +8,19 @@ const FormPage1 = ({ nextPage }) => {
         //validation here
         nextPage();
     };
-    // all rows that has sub__label don't need mb-3 since they are already big enough to have space
+
+    const [showOthersCivil, setShowOthersCivil] = useState(false);
+    const [showOthersCitizenship, setShowOthersCitizenship] = useState(false);
+
+    // all rows that has sub__label don't need mb-4 since they are already big enough to have space
+    // i added mb-4 instead for those rows
+
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
             <form onSubmit={handleSubmit} className="row">
                 {/* Surname */}
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="surname" className="col-sm-3">
                         Last Name*
                         <p className="form__sub-label">(ex. Dela Cruz)</p>
@@ -33,7 +40,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Firstname */}
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="firstname" className="col-sm-3">
                         First Name*
                         <p className="form__sub-label">(ex. Juan)</p>
@@ -71,7 +78,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Middlename */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="middlename"
                         className="col-sm-3 col-form-label"
@@ -92,7 +99,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Date of Birth */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="dob" className="col-sm-3 col-form-label">
                         Date of Birth*
                     </label>
@@ -108,7 +115,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Place of Birth */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="pob" className="col-sm-3 col-form-label">
                         Place of Birth*
                     </label>
@@ -127,7 +134,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Sex */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="sex" className="col-sm-3 col-form-label">
                         Sex*
                     </label>
@@ -146,7 +153,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Civil Status */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="civil_status"
                         className="col-sm-3 col-form-label"
@@ -159,18 +166,31 @@ const FormPage1 = ({ nextPage }) => {
                             id="civil_status"
                             name="civil_status"
                             required
+                            onChange={(e) =>
+                                setShowOthersCivil(e.target.value === 'others')
+                            }
                         >
                             <option value="">Select</option>
                             <option value="single">Single</option>
                             <option value="married">Married</option>
                             <option value="widowed">Widowed</option>
                             <option value="divorced">Divorced</option>
+                            <option value="others">Others</option>
                         </select>
+                        {showOthersCivil && (
+                            <input
+                                type="text"
+                                className="form-control mt-4"
+                                id="civil_status_other"
+                                placeholder="Please Specify*"
+                                required
+                            />
+                        )}
                     </div>
                 </div>
 
                 {/* Height */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="height" className="col-sm-3 col-form-label">
                         Height (cm)
                     </label>
@@ -188,7 +208,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Weight */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="weight" className="col-sm-3 col-form-label">
                         Weight (kg)
                     </label>
@@ -206,7 +226,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Blood Type */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="blood_type"
                         className="col-sm-3 col-form-label"
@@ -234,7 +254,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* GSIS */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="gsis_no"
                         className="col-sm-3 col-form-label"
@@ -255,7 +275,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Pag Ibig */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="pagibig_no"
                         className="col-sm-3 col-form-label"
@@ -276,7 +296,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* PhilHealth */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="philhealth_no"
                         className="col-sm-3 col-form-label"
@@ -297,7 +317,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* SSS */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="sss_no" className="col-sm-3 col-form-label">
                         SSS No.
                     </label>
@@ -315,7 +335,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Tin */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="tin_no" className="col-sm-3 col-form-label">
                         TIN No.
                     </label>
@@ -333,7 +353,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Agency Employee Number */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="agency_employee_no"
                         className="col-sm-3 col-form-label"
@@ -354,7 +374,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Citizenship */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="citizenship"
                         className="col-sm-3 col-form-label"
@@ -362,21 +382,76 @@ const FormPage1 = ({ nextPage }) => {
                         Citizenship *
                     </label>
                     <div className="col-sm-9">
-                        <input
-                            type="text"
-                            className="form-control"
+                        <select
+                            className="form-select"
                             id="citizenship"
                             name="citizenship"
-                            placeholder="Enter your citizenship"
-                            pattern="[A-Za-z\s]+"
-                            title="Please enter a valid citizenship"
                             required
-                        />
+                            onChange={(e) =>
+                                setShowOthersCitizenship(
+                                    e.target.value === 'others',
+                                )
+                            }
+                        >
+                            <option value="">Select</option>
+                            <option value="filipino">Filipino</option>
+                            <option value="others">Dual Citizenship</option>
+                        </select>
+
+                        {showOthersCitizenship && (
+                            <div className="row  mt-4">
+                                {/* Radio */}
+                                <div className="form__citizenship-radio d-flex col-sm-4">
+                                    <div className="form-check">
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            name="citizenship__radio"
+                                            id="by-birth"
+                                            required
+                                        />
+                                        <label
+                                            className="form-check-label"
+                                            for="by-birth"
+                                        >
+                                            By Birth
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check mx-3">
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            name="citizenship__radio"
+                                            id="by-naturalization"
+                                            required
+                                        />
+                                        <label
+                                            className="form-check-label"
+                                            for="by-naturalization"
+                                        >
+                                            By Naturalization
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className="col-sm-8 form__citizenship-country">
+                                    <input
+                                        type="text"
+                                        className="form-control flex-grow-1"
+                                        id="dual_citizenship_country"
+                                        name="dual_citizenship_country"
+                                        placeholder="Please Specify Country*"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
                 {/* Residential Address */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="residential_address"
                         className="col-sm-3 col-form-label"
@@ -396,7 +471,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Telephone Number */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="telephone_no"
                         className="col-sm-3 col-form-label"
@@ -415,7 +490,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Mobile Number */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="mobile_no"
                         className="col-sm-3 col-form-label"
@@ -437,7 +512,7 @@ const FormPage1 = ({ nextPage }) => {
                 </div>
 
                 {/* Email Address */}
-                <div className="mb-3 row">
+                <div className="row mb-4">
                     <label htmlFor="email" className="col-sm-3 col-form-label">
                         Email Address *
                     </label>
@@ -453,14 +528,14 @@ const FormPage1 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <hr className="form__line mt-4" />
+                <hr className="form__line mb-4" />
 
                 {/* Navigate */}
-                <div className=" d-flex justify-content-between mb-4 mt-4">
+                <div className=" d-flex justify-content-between mb-4">
                     {/* Back Button */}
                     <div>
-                        <button type="submit" className="btn btn-primary">
-                            Back
+                        <button type="" className="btn btn-primary">
+                            Back to Home
                         </button>
                     </div>
 
