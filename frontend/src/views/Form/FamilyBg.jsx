@@ -8,20 +8,20 @@ const FormPage2 = ({ nextPage }) => {
         nextPage();
     };
 
-    const [ children, setChildren] = useState([
-      {
-        id: 1,
-        childFullName: "",
-        dob: ""
-      }
+    const [children, setChildren] = useState([
+        {
+            id: 1,
+            childFullName: '',
+            dob: '',
+        },
     ]);
 
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
-            <form onSubmit={handleSubmit} className="mb-3 row">
+            <form onSubmit={handleSubmit} className="row">
                 {/* Spouse Details */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="spouse_lastname" className="col-sm-3">
                         Spouse's Last Name
                     </label>
@@ -36,7 +36,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="spouse_firstname" className="col-sm-3">
                         Spouse's First Name
                     </label>
@@ -64,7 +64,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="mb-3 row">
+                <div className="mb-5 row">
                     <label htmlFor="spouse_middle_name" className="col-sm-3">
                         Spouse's Middle Name
                     </label>
@@ -79,7 +79,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="spouse_occupation" className="col-sm-3">
                         Occupation
                     </label>
@@ -94,7 +94,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="spouse_employer" className="col-sm-3">
                         Employer/Business Name
                     </label>
@@ -109,7 +109,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label
                         htmlFor="spouse_business_address"
                         className="col-sm-3"
@@ -143,7 +143,7 @@ const FormPage2 = ({ nextPage }) => {
                 </div>
 
                 {/* Father's Details */}
-                <div className="mb-3 row">
+                <div className="mb-4 row">
                     <label htmlFor="father_lastname" className="col-sm-3">
                         Father's Last Name
                     </label>
@@ -158,7 +158,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="father_firstname" className="col-sm-3">
                         Father's First Name
                     </label>
@@ -203,7 +203,7 @@ const FormPage2 = ({ nextPage }) => {
                 </div>
 
                 {/* Mother's Details */}
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="mother_lastname" className="col-sm-3">
                         Mother's Last Name
                         <p className="form__sub-label">(Maiden Name)</p>
@@ -219,7 +219,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row mb-4">
                     <label htmlFor="mother_firstname" className="col-sm-3">
                         Mother's First Name
                     </label>
@@ -270,7 +270,7 @@ const FormPage2 = ({ nextPage }) => {
                 <div className="children__details">
                     {children.map((child, index) => (
                         <div key={index}>
-                            <div className="mb-3 row">
+                            <div className="mb-4 row">
                                 <label
                                     htmlFor={`child_lastname_${index}`}
                                     className="col-sm-3"
@@ -287,7 +287,7 @@ const FormPage2 = ({ nextPage }) => {
                                     />
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="row mb-4">
                                 <label
                                     htmlFor={`child_firstname_${index}`}
                                     className="col-sm-3"
@@ -322,7 +322,7 @@ const FormPage2 = ({ nextPage }) => {
                                     />
                                 </div>
                             </div>
-                            <div className="mb-3 row">
+                            <div className="mb-4 row">
                                 <label
                                     htmlFor={`child_middle_name_${index}`}
                                     className="col-sm-3"
@@ -359,19 +359,36 @@ const FormPage2 = ({ nextPage }) => {
                     ))}
 
                     {/* Add more children */}
-                    <div className="my-4 row">
-                        <div className="col-sm-12 text-center">
-                            <button type="button" className="btn btn-secondary">
-                                Add More Child
+                    <div className="row mb-4">
+                        <div className="col-sm-3"></div>
+                        <div className="col-sm-9">
+                            <button
+                                type="button"
+                                className="form__add-more py-2 px-2 "
+                            >
+                                + Add Child
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="form__actions text-center">
-                    <button type="submit" className="btn btn-primary">
-                        Submit
-                    </button>
+                <hr className="form__line" />
+
+                {/* Navigate */}
+                <div className=" d-flex justify-content-between mt-2 mb-4">
+                    {/* Back Button */}
+                    <div>
+                        <button type="button" className="btn btn-primary">
+                            Previous
+                        </button>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div>
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

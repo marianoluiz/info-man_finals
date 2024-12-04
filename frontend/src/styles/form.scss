@@ -14,6 +14,7 @@
 .form__sub-label {
   font-size: .65rem;
   font-style: italic;
+  margin-bottom: 0;
 }
 
 .row {
@@ -37,4 +38,24 @@
 .form__line {
   height: 1.5px;
 /*  color: #dddddd;*/
+}
+
+// add child btn
+.form__add-more {
+  background: transparent;
+  border: transparent;
+  color: $primary-color-lighter;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.form__citizenship-radio {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.form__citizenship-country {
+  padding-right: 0;
 }
