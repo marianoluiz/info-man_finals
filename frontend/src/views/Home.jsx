@@ -11,7 +11,7 @@ const Home = () => {
                         <h1 className="home__main-text">
                             Welcome to Pamantasan ng Lungsod ng Maynila
                         </h1>
-                        <NavLink to="/form" className={'btn home__button'}>
+                        <NavLink to="/form" className='btn home__button'>
                             Register Now
                         </NavLink>
                     </div>

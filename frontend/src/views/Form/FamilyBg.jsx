@@ -16,6 +16,27 @@ const FormPage2 = ({ nextPage }) => {
         },
     ]);
 
+    const addChild = () => {
+        setChildren([
+            ...children
+            , {
+                id: children.length + 1,
+                childFullName: '',
+                dob: '',   
+            }
+        ])
+    }
+
+    const removeChild = () => {
+
+        if(children.length === 1) {
+            return;
+        }
+
+        const newChildren = children.filter((_ ,i) => ( i !== children.length - 1))
+        setChildren(newChildren);
+    }
+
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
@@ -250,7 +271,7 @@ const FormPage2 = ({ nextPage }) => {
                     </div>
                 </div>
 
-                <div className="mb-5 row">
+                <div className="row">
                     <label htmlFor="mother_middle_name" className="col-sm-3">
                         Mother's Middle Name
                         <p className="form__sub-label">(Maiden Name)</p>
@@ -267,10 +288,10 @@ const FormPage2 = ({ nextPage }) => {
                 </div>
 
                 {/* Children Details */}
-                <div className="children__details">
+                <div className="children__details ">
                     {children.map((child, index) => (
                         <div key={index}>
-                            <div className="mb-4 row">
+                            <div className="mb-4 row mt-5">
                                 <label
                                     htmlFor={`child_lastname_${index}`}
                                     className="col-sm-3"
@@ -359,33 +380,43 @@ const FormPage2 = ({ nextPage }) => {
                     ))}
 
                     {/* Add more children */}
-                    <div className="row mb-4">
+                    <div className="row">
                         <div className="col-sm-3"></div>
-                        <div className="col-sm-9">
+                        <div className="col-sm-9 d-flex justify-content-between">
+
                             <button
                                 type="button"
-                                className="form__add-more py-2 px-2 "
+                                className="form__btn form__add-btn py-2 px-2 "
+                                onClick={addChild}
                             >
                                 + Add Child
+                            </button>
+
+                            <button
+                                type="button"
+                                className="form__btn form__remove-btn py-2 px-2"
+                                onClick={removeChild}
+                            >
+                                - Remove Child
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <hr className="form__line" />
+                <hr className="form__line mt-4" />
 
                 {/* Navigate */}
                 <div className=" d-flex justify-content-between mt-2 mb-4">
                     {/* Back Button */}
                     <div>
-                        <button type="button" className="btn btn-primary">
+                        <button type="button" className="btn btn-primary form__navbtn">
                             Previous
                         </button>
                     </div>
 
                     {/* Submit Button */}
                     <div>
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn form__navbtn btn-primary">
                             Submit
                         </button>
                     </div>
