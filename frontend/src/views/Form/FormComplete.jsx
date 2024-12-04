@@ -4,10 +4,10 @@ import '../../styles/form.scss';
 
 const FormComplete = () => {
     return (
-        <div className="form">
+        <div className="form container">
             <h1>Form Complete</h1>
             <p>Thank you for submitting the form!</p>
-            <NavLink to="/">Go back to the landing page</NavLink>
+            <NavLink to="/">Home</NavLink>
         </div>
     );
 };

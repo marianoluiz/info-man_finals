@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/form.scss';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom'
 
 const FormPage1 = ({ nextPage }) => {
     const handleSubmit = (e) => {
@@ -531,17 +532,17 @@ const FormPage1 = ({ nextPage }) => {
                 <hr className="form__line mb-4" />
 
                 {/* Navigate */}
-                <div className=" d-flex justify-content-between mb-4">
+                <div className="d-flex justify-content-between mb-4">
                     {/* Back Button */}
                     <div>
-                        <button type="" className="btn btn-primary">
+                        <NavLink to="/" className="form__navbtn btn btn-primary">
                             Back to Home
-                        </button>
+                        </NavLink>
                     </div>
 
                     {/* Next Button */}
                     <div>
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="form__navbtn btn btn-primary">
                             Next
                         </button>
                     </div>

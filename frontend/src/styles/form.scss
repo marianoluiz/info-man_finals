@@ -40,14 +40,25 @@
 /*  color: #dddddd;*/
 }
 
-// add child btn
-.form__add-more {
+// form more / less child
+.form__btn {
   background: transparent;
   border: transparent;
-  color: $primary-color-lighter;
+}
 
-  &:hover {
+// add child btn
+.form__add-btn {
     color: $primary-color;
+  &:hover {
+    color: #014761;
+  }
+}
+
+// remove child btn
+.form__remove-btn {
+  color: $red-color;
+  &:hover {
+    color: #a6071e;
   }
 }
 
@@ -58,4 +69,8 @@
 
 .form__citizenship-country {
   padding-right: 0;
+}
+
+.form__navbtn {
+  background-color: $primary-color-lighter;
 }

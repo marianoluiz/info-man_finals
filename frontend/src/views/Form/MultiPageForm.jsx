@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import FormPage1 from './PersonalInfo';
 import FormPage2 from './FamilyBg';
-import FormPage3 from './Education';
 import FormComplete from './FormComplete';
 import MainLayout from '../../layout/MainLayout';
 import FormStepper from '../../components/FormStepper';
@@ -26,8 +25,6 @@ const MultiPageForm = () => {
             case 2:
                 return <FormPage2 nextPage={nextPage} prevPage={prevPage} />;
             case 3:
-                return <FormPage3 nextPage={nextPage} prevPage={prevPage} />;
-            case 4:
                 return <FormComplete />;
             default:
                 return <FormPage1 nextPage={nextPage} />;
