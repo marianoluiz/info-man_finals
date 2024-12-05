@@ -534,7 +534,7 @@ const FormPage1 = ({ nextPage }) => {
                 <div className="d-flex justify-content-between mb-4">
                     {/* Back Button */}
                     <div>
-                        <NavLink to="/" className="btn btn-danger">
+                        <NavLink to="/" className="form__navbtn btn btn-primary">
                             Back
                         </NavLink>
                     </div>
