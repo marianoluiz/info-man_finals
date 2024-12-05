@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/form.scss';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const FormPage1 = ({ nextPage }) => {
     const handleSubmit = (e) => {
@@ -239,7 +239,6 @@ const FormPage1 = ({ nextPage }) => {
                             className="form-select"
                             id="blood_type"
                             name="blood_type"
-                            required
                         >
                             <option value="">Select</option>
                             <option value="a+">A+</option>
@@ -506,7 +505,7 @@ const FormPage1 = ({ nextPage }) => {
                             name="mobile_no"
                             required
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your mobile number"
                         />
                     </div>
@@ -536,13 +535,16 @@ const FormPage1 = ({ nextPage }) => {
                     {/* Back Button */}
                     <div>
                         <NavLink to="/" className="form__navbtn btn btn-primary">
-                            Back to Home
+                            Back
                         </NavLink>
                     </div>
 
                     {/* Next Button */}
                     <div>
-                        <button type="submit" className="form__navbtn btn btn-primary">
+                        <button
+                            type="submit"
+                            className="form__navbtn btn btn-primary"
+                        >
                             Next
                         </button>
                     </div>
