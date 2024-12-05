@@ -1,13 +1,22 @@
-import React from 'react';
 import '../../styles/form.scss';
+import PropTypes from 'prop-types'; //for propTyping below
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const FormPage1 = ({ nextPage }) => {
+const PersonalInfo = ({ nextPage, formData, setFormData}) => {
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        //validation here
+        // validation here
         nextPage();
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
     };
 
     const [showOthersCivil, setShowOthersCivil] = useState(false);
@@ -22,7 +31,7 @@ const FormPage1 = ({ nextPage }) => {
             <form onSubmit={handleSubmit} className="row">
                 {/* Surname */}
                 <div className="row mb-4">
-                    <label htmlFor="surname" className="col-sm-3">
+                    <label htmlFor="lastname" className="col-sm-3">
                         Last Name*
                         <p className="form__sub-label">(ex. Dela Cruz)</p>
                     </label>
@@ -30,12 +39,22 @@ const FormPage1 = ({ nextPage }) => {
                         <input
                             type="text"
                             className="form-control"
-                            id="surname"
-                            name="surname"
+                            id="lastname"
+                            name="lastname"
                             placeholder="Enter your last name"
-                            pattern="[A-Za-z\s]+"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            /* 
+                                ^[A-Za-z]+ === charac class one letter at start
+                                (\s[A-Za-z]+)*$ === group, 1 space + 1 letter
+                                                    the * means zero or more of the expression inside the ().
+                                                    dollar means end
+                            
+                            */
                             title="Please enter a valid last name"
                             required
+                            value={formData.lastname}
+                            onChange={handleInputChange}
+                            /* no need to pass e, onchange automatically does that */
                         />
                     </div>
                 </div>
@@ -53,9 +72,11 @@ const FormPage1 = ({ nextPage }) => {
                             id="firstname"
                             name="firstname"
                             placeholder="Enter your first name"
-                            pattern="[A-Za-z\s]+"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid first name"
                             required
+                            value={formData.firstname}
+                            onChange={handleInputChange}
                         />
                     </div>
 
@@ -71,9 +92,9 @@ const FormPage1 = ({ nextPage }) => {
                             id="extension_name"
                             name="extension_name"
                             placeholder="Enter your first name"
-                            pattern="^[A-Za-z\s.]+$"
-                            title="Please enter a valid extension name"
                             required
+                            value={formData.extension_name}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -93,8 +114,10 @@ const FormPage1 = ({ nextPage }) => {
                             id="middlename"
                             name="middlename"
                             placeholder="Enter your middle name"
-                            pattern="[A-Za-z\s]*"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid middle name"
+                            value={formData.middlename}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -111,6 +134,8 @@ const FormPage1 = ({ nextPage }) => {
                             id="dob"
                             name="dob"
                             required
+                            value={formData.dob}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -127,9 +152,9 @@ const FormPage1 = ({ nextPage }) => {
                             id="pob"
                             name="pob"
                             placeholder="Enter your place of birth"
-                            pattern="[A-Za-z\s]+"
-                            title="Please enter a valid place of birth"
                             required
+                            value={formData.pob}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -145,6 +170,8 @@ const FormPage1 = ({ nextPage }) => {
                             id="sex"
                             name="sex"
                             required
+                            value={formData.sex}
+                            onChange={handleInputChange}
                         >
                             <option value="">Select</option>
                             <option value="male">Male</option>
@@ -167,9 +194,12 @@ const FormPage1 = ({ nextPage }) => {
                             id="civil_status"
                             name="civil_status"
                             required
-                            onChange={(e) =>
-                                setShowOthersCivil(e.target.value === 'others')
-                            }
+                            value={formData.civil_status}
+                            onChange={(e) => {
+                                handleInputChange(e);
+                                // Puts up true in the showOthersCivil if value is 'others'
+                                setShowOthersCivil(e.target.value === 'others');
+                            }}
                         >
                             <option value="">Select</option>
                             <option value="single">Single</option>
@@ -185,6 +215,8 @@ const FormPage1 = ({ nextPage }) => {
                                 id="civil_status_other"
                                 placeholder="Please Specify*"
                                 required
+                                value={formData.civil_status_other}
+                                onChange={handleInputChange}
                             />
                         )}
                     </div>
@@ -203,7 +235,8 @@ const FormPage1 = ({ nextPage }) => {
                             name="height"
                             min="0"
                             placeholder="Enter your height in cm"
-                            required
+                            value={formData.height}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -221,7 +254,8 @@ const FormPage1 = ({ nextPage }) => {
                             name="weight"
                             min="0"
                             placeholder="Enter your weight in kg"
-                            required
+                            value={formData.weight}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -239,6 +273,8 @@ const FormPage1 = ({ nextPage }) => {
                             className="form-select"
                             id="blood_type"
                             name="blood_type"
+                            value={formData.blood_type}
+                            onChange={handleInputChange}
                         >
                             <option value="">Select</option>
                             <option value="a+">A+</option>
@@ -270,6 +306,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your GSIS number"
+                            title="Numbers only"
+                            value={formData.gsis_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -291,6 +330,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your Pag-IBIG number"
+                            title="Numbers only"
+                            value={formData.pagibig_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -312,6 +354,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your PhilHealth number"
+                            title="Numbers only"
+                            value={formData.philhealth_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -330,6 +375,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your SSS number"
+                            title="Numbers only"
+                            value={formData.sss_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -348,6 +396,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your TIN number"
+                            title="Numbers only"
+                            value={formData.tin_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -369,6 +420,9 @@ const FormPage1 = ({ nextPage }) => {
                             inputMode="numeric"
                             pattern="[0-9]*"
                             placeholder="Enter your agency employee number"
+                            title="Numbers only"
+                            value={formData.agency_employee_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -387,11 +441,13 @@ const FormPage1 = ({ nextPage }) => {
                             id="citizenship"
                             name="citizenship"
                             required
-                            onChange={(e) =>
+                            value={formData.citizenship}
+                            onChange={(e) => {
+                                handleInputChange(e);
                                 setShowOthersCitizenship(
                                     e.target.value === 'others',
-                                )
-                            }
+                                );
+                            }}
                         >
                             <option value="">Select</option>
                             <option value="filipino">Filipino</option>
@@ -407,12 +463,18 @@ const FormPage1 = ({ nextPage }) => {
                                             className="form-check-input"
                                             type="radio"
                                             name="citizenship__radio"
+                                            onChange={handleInputChange}
                                             id="by-birth"
+                                            value="by-birth"
+                                            checked={
+                                                formData.citizenship__radio ===
+                                                'by-birth'
+                                            }
                                             required
                                         />
                                         <label
                                             className="form-check-label"
-                                            for="by-birth"
+                                            htmlFor="by-birth"
                                         >
                                             By Birth
                                         </label>
@@ -424,11 +486,16 @@ const FormPage1 = ({ nextPage }) => {
                                             type="radio"
                                             name="citizenship__radio"
                                             id="by-naturalization"
+                                            value="by-naturalization"
+                                            checked={
+                                                formData.citizenship__radio ===
+                                                'by-naturalization'
+                                            }
                                             required
                                         />
                                         <label
                                             className="form-check-label"
-                                            for="by-naturalization"
+                                            htmlFor="by-naturalization"
                                         >
                                             By Naturalization
                                         </label>
@@ -442,6 +509,12 @@ const FormPage1 = ({ nextPage }) => {
                                         id="dual_citizenship_country"
                                         name="dual_citizenship_country"
                                         placeholder="Please Specify Country*"
+                                        pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                                        title="Please enter a valid country"
+                                        value={
+                                            formData.dual_citizenship_country
+                                        }
+                                        onChange={handleInputChange}
                                         required
                                     />
                                 </div>
@@ -466,6 +539,8 @@ const FormPage1 = ({ nextPage }) => {
                             name="residential_address"
                             placeholder="Enter your residential address"
                             required
+                            value={formData.residential_address}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -485,6 +560,10 @@ const FormPage1 = ({ nextPage }) => {
                             id="telephone_no"
                             name="telephone_no"
                             placeholder="Enter your telephone number"
+                            pattern="^[0-9][0-9\s]*$"
+                            title="Numbers are only allowed"
+                            value={formData.telephone_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -505,8 +584,11 @@ const FormPage1 = ({ nextPage }) => {
                             name="mobile_no"
                             required
                             inputMode="numeric"
-                            pattern="[0-9 ]*"
+                            pattern="^[0-9][0-9\s]*$"
+                            title="Numbers are only allowed"
                             placeholder="Enter your mobile number"
+                            value={formData.mobile_no}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -523,10 +605,19 @@ const FormPage1 = ({ nextPage }) => {
                             id="email"
                             name="email"
                             placeholder="Enter your email address"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Enter a valid e-mail"
                             required
+                            value={formData.email}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
+
+                {/* errors */}
+
+                {/* {errors.email && 
+                <p className="error">{errors.email}</p>} */}
 
                 <hr className="form__line mb-4" />
 
@@ -534,7 +625,10 @@ const FormPage1 = ({ nextPage }) => {
                 <div className="d-flex justify-content-between mb-4">
                     {/* Back Button */}
                     <div>
-                        <NavLink to="/" className="form__navbtn btn btn-primary">
+                        <NavLink
+                            to="/"
+                            className="form__navbtn btn btn-primary"
+                        >
                             Back
                         </NavLink>
                     </div>
@@ -554,4 +648,10 @@ const FormPage1 = ({ nextPage }) => {
     );
 };
 
-export default FormPage1;
+PersonalInfo.propTypes = {
+    nextPage: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    setFormData: PropTypes.func.isRequired,
+};
+
+export default PersonalInfo;

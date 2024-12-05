@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/formBanner.scss';
 import plmLogoBannerBlurred from '../img/plm-logo-banner-blurred.png';
 
