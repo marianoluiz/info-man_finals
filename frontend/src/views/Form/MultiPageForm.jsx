@@ -34,11 +34,13 @@ const MultiPageForm = () => {
     return (
         <MainLayout>
             <FormBanner />
-            <FormStepper
-                formPages={formPages}
-                currentPage={currentPage - 1}
-                onPageClick={goToPage}
-            />
+            {currentPage != 3 && (
+                <FormStepper
+                    formPages={formPages}
+                    currentPage={currentPage - 1}
+                    onPageClick={goToPage}
+                />
+            )}
             {renderPage()}
         </MainLayout>
     );
