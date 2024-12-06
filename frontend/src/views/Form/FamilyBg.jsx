@@ -1,8 +1,7 @@
-import React from 'react';
 import '../../styles/form.scss';
 import { useState } from 'react';
 
-const FormPage2 = ({ nextPage, prevPage }) => {
+const FamilyBg = ({ nextPage, prevPage}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         nextPage();
@@ -90,6 +89,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="spouse_lastname"
                             name="spouse_lastname"
                             placeholder="Enter spouse's last name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Enter a valid name"
                             value={formData.spouse_lastname}
                             onChange={handleInputChange}
                         />
@@ -107,6 +108,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="spouse_firstname"
                             name="spouse_firstname"
                             placeholder="Enter spouse's first name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Enter a valid name"
                             required={formData.spouse_lastname} // 'converts any value to a boolean.
                         />
                     </div>
@@ -121,6 +124,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="spouse_extension"
                             name="spouse_extension"
                             placeholder="Enter spouse's extension name"
+                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
+                            title="Please enter a valid extension name"
                         />
                     </div>
                 </div>
@@ -136,6 +141,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="spouse_middle_name"
                             name="spouse_middle_name"
                             placeholder="Enter spouse's middle name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Enter a valid name"
                         />
                     </div>
                 </div>
@@ -200,6 +207,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="spouse_telephone"
                             name="spouse_telephone"
                             placeholder="Enter telephone number"
+                            pattern="^[0-9][0-9\s]*$"
+                            title="Numbers are only allowed"
                         />
                     </div>
                 </div>
@@ -217,6 +226,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             name="father_lastname"
                             placeholder="Enter father's last name"
                             required
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Enter a valid name"
                         />
                     </div>
                 </div>
@@ -232,6 +243,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="father_firstname"
                             name="father_firstname"
                             placeholder="Enter father's first name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Enter a valid name"
                             required
                         />
                     </div>
@@ -247,6 +260,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="father_extension_name"
                             name="father_extension_name"
                             placeholder="Enter father's extension name"
+                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
+                            title="Please enter a valid extension name"
                         />
                     </div>
                 </div>
@@ -262,6 +277,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="father_middlename"
                             name="father_middlename"
                             placeholder="Enter father's middle name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Please enter a valid name"
                         />
                     </div>
                 </div>
@@ -280,6 +297,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             name="mother_lastname"
                             placeholder="Enter mother's last name"
                             required
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Please enter a valid name"
                         />
                     </div>
                 </div>
@@ -296,6 +315,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             name="mother_firstname"
                             placeholder="Enter mother's first name"
                             required
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Please enter a valid name"
                         />
                     </div>
 
@@ -312,6 +333,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="mother_extension"
                             name="mother_extension"
                             placeholder="Enter mother's extension name"
+                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
+                            title="Please enter a valid extension name"
                         />
                     </div>
                 </div>
@@ -328,6 +351,8 @@ const FormPage2 = ({ nextPage, prevPage }) => {
                             id="mother_middle_name"
                             name="mother_middle_name"
                             placeholder="Enter mother's middle name"
+                            pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
+                            title="Please enter a valid first name"
                         />
                     </div>
                 </div>
@@ -443,4 +468,4 @@ const FormPage2 = ({ nextPage, prevPage }) => {
     );
 };
 
-export default FormPage2;
+export default FamilyBg;

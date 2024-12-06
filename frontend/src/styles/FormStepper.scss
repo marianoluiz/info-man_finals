@@ -10,7 +10,7 @@
   padding: 5px 10px;
   transition: background-color 0.3s, color 0.3s;
   font-size: .9rem;
-  color: $primary-color-lighter;
+  color: $text-secondary-color;
 
   
   /* un-active styles  */
@@ -23,7 +23,7 @@
   &.active {
     border: 1px solid rgb(207, 207, 207);
     border-bottom: none;
-    color: $text-secondary-color;
+    color: $primary-color-lighter;
   }
 } 
 
