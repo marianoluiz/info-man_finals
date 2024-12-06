@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect  } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PersonalInfo from './PersonalInfo';
 import FamilyBg from './FamilyBg';
 import FormComplete from './FormComplete';
@@ -64,11 +64,11 @@ const MultiPageForm = () => {
     });
 
     useEffect(() => {
-        console.log("formData:", formData);
+        console.log('formData:', formData);
     }, [formData]);
 
     // Automatically populate form fields on mount
-    /* useEffect(() => {
+    useEffect(() => {
         setFormData({
             lastname: 'Doe',
             firstname: 'John',
@@ -96,7 +96,6 @@ const MultiPageForm = () => {
             mobile_no: '09123456789',
             email: 'john.doe@example.com',
 
-
             spouse_lastname: 'Smith',
             spouse_firstname: 'Jane',
             spouse_middlename: 'Dandy',
@@ -116,10 +115,14 @@ const MultiPageForm = () => {
             mother_middlename: 'Kevin',
             mother_extension: 'Cooper',
             children: [
-                { id: 'child_fullname_1', child_fullname: 'Child One', child_dob: '2015-01-01' },
+                {
+                    id: 'child_fullname_1',
+                    child_fullname: 'Child One',
+                    child_dob: '2015-01-01',
+                },
             ],
         });
-    }, []);  */
+    }, []);
 
     // Pages of the form
     const formPages = ['Personal Information', 'Family Background'];
@@ -138,8 +141,7 @@ const MultiPageForm = () => {
 
     const goToPage = (pageIndex) => {
         setCurrentPage(pageIndex + 1);
-    }
-
+    };
 
     // pages starts with 1 cause there is no case 0 on switch case
     // Use this function for enabled navigation in stepper
@@ -166,7 +168,7 @@ const MultiPageForm = () => {
                     />
                 );
             case 3:
-                return <FormComplete />;
+                return <FormComplete formData={formData} />;
             default:
                 return <PersonalInfo nextPage={nextPage} />;
         }

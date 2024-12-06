@@ -26,7 +26,7 @@ FormStepper.propTypes = {
     formPages: PropTypes.arrayOf(PropTypes.string).isRequired,
     currentPage: PropTypes.number.isRequired,
     onPageClick: PropTypes.func.isRequired,
-    disabled: PropTypes.bool.isRequired
+    disabled: PropTypes.bool.isRequired,
 };
 
 export default FormStepper;

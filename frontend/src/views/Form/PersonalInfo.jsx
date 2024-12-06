@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
-
     const handleSubmit = (e) => {
         e.preventDefault();
         // validation here
-        console.log("submit done")
+        console.log('submit done');
         nextPage();
     };
 
@@ -445,7 +444,9 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                         >
                             <option value="">Select</option>
                             <option value="filipino">Filipino</option>
-                            <option value="dual_citizen">Dual Citizenship</option>
+                            <option value="dual_citizen">
+                                Dual Citizenship
+                            </option>
                         </select>
 
                         {showOthersCitizenship && (
