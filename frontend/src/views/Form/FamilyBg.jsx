@@ -150,7 +150,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             id="occupation"
                             name="occupation"
                             placeholder="Enter occupation"
-                             value={formData.occupation}
+                            value={formData.occupation}
                             onChange={handleInputChange}
                             required
                         />
@@ -209,7 +209,6 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             title="Numbers are only allowed"
                             value={formData.business_telephone}
                             onChange={handleInputChange}
-
                         />
                     </div>
                 </div>
@@ -303,7 +302,6 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             id="mother_lastname"
                             name="mother_lastname"
                             value={formData.mother_lastname}
-
                             placeholder="Enter mother's last name"
                             required
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
@@ -323,8 +321,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             className="form-control"
                             id="mother_firstname"
                             name="mother_firstname"
-                                                        value={formData.mother_firstname}
-
+                            value={formData.mother_firstname}
                             placeholder="Enter mother's first name"
                             required
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
@@ -488,8 +485,7 @@ FamilyBg.propTypes = {
     prevPage: PropTypes.func.isRequired,
     formData: PropTypes.object.isRequired,
     formRef: PropTypes.object.isRequired,
-    setFormData: PropTypes.func.isRequired
-
+    setFormData: PropTypes.func.isRequired,
 };
 
 export default FamilyBg;
