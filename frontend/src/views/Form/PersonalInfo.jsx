@@ -8,6 +8,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // validation here
+        console.log("submit done")
         nextPage();
     };
 
@@ -84,8 +85,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             className="form-control"
                             id="extension_name"
                             name="extension_name"
-                            placeholder="Enter your first name"
-                            required
+                            placeholder="Enter your extension name"
                             value={formData.extension_name}
                             onChange={handleInputChange}
                         />
@@ -439,13 +439,13 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             onChange={(e) => {
                                 handleInputChange(e);
                                 setShowOthersCitizenship(
-                                    e.target.value === 'others',
+                                    e.target.value === 'dual_citizen',
                                 );
                             }}
                         >
                             <option value="">Select</option>
                             <option value="filipino">Filipino</option>
-                            <option value="others">Dual Citizenship</option>
+                            <option value="dual_citizen">Dual Citizenship</option>
                         </select>
 
                         {showOthersCitizenship && (
@@ -458,17 +458,17 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                                             type="radio"
                                             name="dual_citizenship_status"
                                             onChange={handleInputChange}
-                                            id="by-birth"
-                                            value="by-birth"
+                                            id="by_birth"
+                                            value="by_birth"
                                             checked={
                                                 formData.dual_citizenship_status ===
-                                                'by-birth'
+                                                'by_birth'
                                             }
                                             required
                                         />
                                         <label
                                             className="form-check-label"
-                                            htmlFor="by-birth"
+                                            htmlFor="by_birth"
                                         >
                                             By Birth
                                         </label>
@@ -479,18 +479,18 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                                             className="form-check-input"
                                             type="radio"
                                             name="dual_citizenship_status"
-                                            id="by-naturalization"
-                                            value="by-naturalization"
+                                            id="by_naturalization"
+                                            value="by_naturalization"
                                             checked={
                                                 formData.dual_citizenship_status ===
-                                                'by-naturalization'
+                                                'by_naturalization'
                                             }
                                             onChange={handleInputChange}
                                             required
                                         />
                                         <label
                                             className="form-check-label"
-                                            htmlFor="by-naturalization"
+                                            htmlFor="by_naturalization"
                                         >
                                             By Naturalization
                                         </label>
@@ -600,8 +600,6 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             id="email"
                             name="email"
                             placeholder="Enter your email address"
-                            pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-                            title="Enter a valid e-mail"
                             required
                             value={formData.email}
                             onChange={handleInputChange}

@@ -7,3 +7,96 @@
                                                     dollar means end
                             
                             */
+
+
+                            formData: 
+Object { lastname: "King", firstname: "Mariano Luiz", middlename: "Benosa", extension_name: "II.", dob: "2024-12-12", pob: "Garbage", sex: "male", civil_status: "married", height: "123", weight: "123", … }
+​
+agency_employee_no: "123"
+​
+blood_type: "ab-"
+​
+business_address: "123"
+​
+business_telephone: "123"
+​
+business_telephone_no: ""
+​
+children: Array [ {…}, {…} ]
+​
+citizenship: "filipino"
+​
+civil_status: "married"
+​
+civil_status_other: ""
+​
+dob: "2024-12-12"
+​
+dual_citizen_status: ""
+​
+dual_citizenship_country: ""
+​
+email: "123@gmail"
+​
+employer: "Idk"
+​
+extension_name: "II."
+​
+father_extension: "BongBong MArcos"
+​
+father_firstname: "Robbery"
+​
+father_lastname: "Bob"
+​
+father_middlename: "Corruption"
+​
+firstname: "Mariano Luiz"
+​
+gsis_no: "123"
+​
+height: "123"
+​
+lastname: "King"
+​
+middlename: "Benosa"
+​
+mobile_no: "123"
+​
+mother_extension: "fund"
+​
+mother_firstname: "Confidential"
+​
+mother_lastname: "Sarah Durant"
+​
+mother_middlename: "Pagcor"
+​
+pagibig_no: "123"
+​
+philhealth_no: "123"
+​
+pob: "Garbage"
+​
+residential_address: "123"
+​
+sex: "male"
+​
+spouse_extension: "II"
+​
+spouse_firstname: "Carpenter"
+​
+spouse_lastname: "Sabrina"
+​
+spouse_middlename: "Mariano"
+​
+spouse_occupation: ""
+​
+sss_no: "123"
+​
+telephone_no: "123"
+​
+tin_no: "123"
+​
+weight: "123"
+​
+<prototype>: Object { … }
+MultiPageForm.jsx:67:16

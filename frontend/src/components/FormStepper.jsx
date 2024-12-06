@@ -9,7 +9,6 @@ const FormStepper = ({ formPages, currentPage, disabled, onPageClick }) => {
                 <button
                     key={index}
                     className={`stepper__item ${index === currentPage ? 'active' : ''}`}
-                    onClick={onPageClick}
                     // this onclick puts up the index + 1 to the current page
                 >
                     {/* If on Completion page, dont render pageSteps Array*/}
