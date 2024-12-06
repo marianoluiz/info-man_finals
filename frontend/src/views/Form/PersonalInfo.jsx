@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; //for propTyping below
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const PersonalInfo = ({ nextPage, formData, setFormData}) => {
+const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,7 +28,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
-            <form onSubmit={handleSubmit} className="row">
+            <form ref={formRef} onSubmit={handleSubmit} className="row">
                 {/* Surname */}
                 <div className="row mb-4">
                     <label htmlFor="lastname" className="col-sm-3">
@@ -43,15 +43,8 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             name="lastname"
                             placeholder="Enter your last name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
-                            /* 
-                                ^[A-Za-z]+ === charac class one letter at start
-                                (\s[A-Za-z]+)*$ === group, 1 space + 1 letter
-                                                    the * means zero or more of the expression inside the ().
-                                                    dollar means end
-                            
-                            */
-                            title="Please enter a valid last name"
                             required
+                            title="Please enter a valid last name"
                             value={formData.lastname}
                             onChange={handleInputChange}
                             /* no need to pass e, onchange automatically does that */
@@ -213,6 +206,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                                 type="text"
                                 className="form-control mt-4"
                                 id="civil_status_other"
+                                name="civil_status_other"
                                 placeholder="Please Specify*"
                                 required
                                 value={formData.civil_status_other}
@@ -304,7 +298,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="gsis_no"
                             name="gsis_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your GSIS number"
                             title="Numbers only"
                             value={formData.gsis_no}
@@ -328,7 +322,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="pagibig_no"
                             name="pagibig_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your Pag-IBIG number"
                             title="Numbers only"
                             value={formData.pagibig_no}
@@ -352,7 +346,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="philhealth_no"
                             name="philhealth_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your PhilHealth number"
                             title="Numbers only"
                             value={formData.philhealth_no}
@@ -373,7 +367,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="sss_no"
                             name="sss_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your SSS number"
                             title="Numbers only"
                             value={formData.sss_no}
@@ -394,7 +388,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="tin_no"
                             name="tin_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your TIN number"
                             title="Numbers only"
                             value={formData.tin_no}
@@ -418,7 +412,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="agency_employee_no"
                             name="agency_employee_no"
                             inputMode="numeric"
-                            pattern="[0-9]*"
+                            pattern="[0-9 ]*"
                             placeholder="Enter your agency employee number"
                             title="Numbers only"
                             value={formData.agency_employee_no}
@@ -462,12 +456,12 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                                         <input
                                             className="form-check-input"
                                             type="radio"
-                                            name="citizenship__radio"
+                                            name="dual_citizenship_status"
                                             onChange={handleInputChange}
                                             id="by-birth"
                                             value="by-birth"
                                             checked={
-                                                formData.citizenship__radio ===
+                                                formData.dual_citizenship_status ===
                                                 'by-birth'
                                             }
                                             required
@@ -484,13 +478,14 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                                         <input
                                             className="form-check-input"
                                             type="radio"
-                                            name="citizenship__radio"
+                                            name="dual_citizenship_status"
                                             id="by-naturalization"
                                             value="by-naturalization"
                                             checked={
-                                                formData.citizenship__radio ===
+                                                formData.dual_citizenship_status ===
                                                 'by-naturalization'
                                             }
+                                            onChange={handleInputChange}
                                             required
                                         />
                                         <label
@@ -596,7 +591,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                 {/* Email Address */}
                 <div className="row mb-4">
                     <label htmlFor="email" className="col-sm-3 col-form-label">
-                        Email Address *
+                        Email Address*
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -605,7 +600,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
                             id="email"
                             name="email"
                             placeholder="Enter your email address"
-                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
                             title="Enter a valid e-mail"
                             required
                             value={formData.email}
@@ -635,6 +630,7 @@ const PersonalInfo = ({ nextPage, formData, setFormData}) => {
 
                     {/* Next Button */}
                     <div>
+                        {/* this is submit */}
                         <button
                             type="submit"
                             className="form__navbtn btn btn-primary"
@@ -652,6 +648,7 @@ PersonalInfo.propTypes = {
     nextPage: PropTypes.func.isRequired,
     formData: PropTypes.object.isRequired,
     setFormData: PropTypes.func.isRequired,
+    formRef: PropTypes.object.isRequired,
 };
 
 export default PersonalInfo;

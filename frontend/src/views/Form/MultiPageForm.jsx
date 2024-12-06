@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import PersonalInfo from './PersonalInfo';
 import FamilyBg from './FamilyBg';
 import FormComplete from './FormComplete';
@@ -35,23 +35,65 @@ const MultiPageForm = () => {
         civil_status_other: '', // Added for "Other" civil status
         dual_citizen_status: '', // Added for dual citizenship
         dual_citizenship_country: '', // Added for dual citizenship country
+
+        // Page 2
+        spouse_lastname: '',
+        spouse_firstname: '',
+        children: [
+            {
+                id: `child_fullname_1`,
+                child_fullname: '',
+                dob: '',
+            },
+        ],
     });
 
     // Pages of the form
     const formPages = ['Personal Information', 'Family Background'];
 
-    const nextPage = () => setCurrentPage(currentPage + 1);
-    const prevPage = () => setCurrentPage(currentPage - 1);
-    const goToPage = (pageIndex) => setCurrentPage(pageIndex + 1);
+    // Using the form 
+    const formRef = useRef(null);
+
+    const nextPage = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const prevPage = () => {
+        setCurrentPage(currentPage - 1);
+    };
+
+    const goToPage = (pageIndex) => {
+        if (formRef.current && formRef.current.checkValidity()) {
+            setCurrentPage(pageIndex + 1);
+        } else {
+            formRef.current.reportValidity();
+        } 
+    };
+
     // pages starts with 1 cause there is no case 0 on switch case
     // Use this function for enabled navigation in stepper
 
     const renderPage = () => {
         switch (currentPage) {
             case 1:
-                return <PersonalInfo nextPage={nextPage} formData={formData} setFormData={setFormData} />;
+                return (
+                    <PersonalInfo
+                        formData={formData}
+                        nextPage={nextPage}
+                        setFormData={setFormData}
+                        formRef={formRef}
+                    />
+                );
             case 2:
-                return <FamilyBg nextPage={nextPage} prevPage={prevPage} formData={formData} setFormData={setFormData} />;
+                return (
+                    <FamilyBg
+                        nextPage={nextPage}
+                        prevPage={prevPage}
+                        formData={formData}
+                        setFormData={setFormData}
+                        formRef={formRef}
+                    />
+                );
             case 3:
                 return <FormComplete />;
             default:

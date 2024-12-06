@@ -1,26 +1,14 @@
 import '../../styles/form.scss';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const FamilyBg = ({ nextPage, prevPage}) => {
+const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         nextPage();
     };
 
-    const [formData, setFormData] = useState({
-        spouse_lastname: '',
-        spouse_firstname: '',
-        children: [
-            {
-                id: `child_fullname_1`,
-                child_fullname: '',
-                dob: '',
-            },
-        ],
-    });
-
     // Adding More a Child Section
-    const addChild = (index) => {
+    const addChild = () => {
         const newIndex = formData.children.length + 1;
 
         setFormData({
@@ -76,11 +64,11 @@ const FamilyBg = ({ nextPage, prevPage}) => {
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
-            <form onSubmit={handleSubmit} className="row">
+            <form onSubmit={handleSubmit} ref={formRef} className="row">
                 {/* Spouse Details */}
                 <div className="mb-4 row">
                     <label htmlFor="spouse_lastname" className="col-sm-3">
-                        Spouse's Last Name
+                        Spouse&apos;s Last Name
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -99,7 +87,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="row mb-4">
                     <label htmlFor="spouse_firstname" className="col-sm-3">
-                        Spouse's First Name
+                        Spouse&apos;s First Name
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -132,7 +120,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="mb-5 row">
                     <label htmlFor="spouse_middle_name" className="col-sm-3">
-                        Spouse's Middle Name
+                        Spouse&apos;s Middle Name
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -216,7 +204,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                 {/* Father's Details */}
                 <div className="mb-4 row">
                     <label htmlFor="father_lastname" className="col-sm-3">
-                        Father's Last Name*
+                        Father&apos;s Last Name*
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -234,7 +222,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="row mb-4">
                     <label htmlFor="father_firstname" className="col-sm-3">
-                        Father's First Name*
+                        Father&apos;s First Name*
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -268,7 +256,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="mb-5 row">
                     <label htmlFor="father_middlename" className="col-sm-3">
-                        Father's Middle Name
+                        Father&apos;s Middle Name
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -286,7 +274,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                 {/* Mother's Details */}
                 <div className="row mb-4">
                     <label htmlFor="mother_lastname" className="col-sm-3">
-                        Mother's Last Name*
+                        Mother&apos;s Last Name*
                         <p className="form__sub-label">(Maiden Name)</p>
                     </label>
                     <div className="col-sm-9">
@@ -305,7 +293,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="row mb-4">
                     <label htmlFor="mother_firstname" className="col-sm-3">
-                        Mother's First Name*
+                        Mother&apos;s First Name*
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -341,7 +329,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="row">
                     <label htmlFor="mother_middle_name" className="col-sm-3">
-                        Mother's Middle Name
+                        Mother&apos;s Middle Name
                         <p className="form__sub-label">(Maiden Name)</p>
                     </label>
                     <div className="col-sm-9">
@@ -366,7 +354,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                                     htmlFor={`child_fullname_${index}`}
                                     className="col-sm-3"
                                 >
-                                    Child's Full Name
+                                    Child&apos;s Full Name
                                 </label>
                                 <div className="col-sm-9">
                                     <input
@@ -466,6 +454,15 @@ const FamilyBg = ({ nextPage, prevPage}) => {
             </form>
         </div>
     );
+};
+
+FamilyBg.propTypes = {
+    nextPage: PropTypes.func.isRequired,
+    prevPage: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    formRef: PropTypes.object.isRequired,
+    setFormData: PropTypes.func.isRequired
+
 };
 
 export default FamilyBg;
