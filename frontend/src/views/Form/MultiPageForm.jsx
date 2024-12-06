@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect  } from 'react';
 import PersonalInfo from './PersonalInfo';
 import FamilyBg from './FamilyBg';
 import FormComplete from './FormComplete';
@@ -35,23 +35,136 @@ const MultiPageForm = () => {
         civil_status_other: '', // Added for "Other" civil status
         dual_citizen_status: '', // Added for dual citizenship
         dual_citizenship_country: '', // Added for dual citizenship country
+
+        // Page 2: Family Background
+        spouse_lastname: '',
+        spouse_firstname: '',
+        spouse_middlename: '',
+        spouse_extension: '',
+        occupation: '',
+        employer: '',
+        business_address: '',
+        business_telephone_no: '',
+
+        father_lastname: '',
+        father_firstname: '',
+        father_middlename: '',
+        father_extension: '',
+        mother_lastname: '',
+        mother_firstname: '',
+        mother_middlename: '',
+        mother_extension: '',
+        children: [
+            {
+                id: `child_fullname_1`,
+                child_fullname: '',
+                dob: '',
+            },
+        ],
     });
+
+    useEffect(() => {
+        console.log("formData:", formData);
+    }, [formData]);
+
+    // Automatically populate form fields on mount
+    /* useEffect(() => {
+        setFormData({
+            lastname: 'Doe',
+            firstname: 'John',
+            middlename: 'Arellano',
+            extension_name: 'Jr.',
+            dob: '2005-12-10',
+            pob: 'city',
+            sex: 'male',
+            civil_status: 'others',
+            civil_status_other: 'unsure', //other
+            height: '100',
+            weight: '160',
+            blood_type: 'o+',
+            gsis_no: '123456789',
+            pagibig_no: '987654321',
+            philhealth_no: '456789123',
+            sss_no: '987654321',
+            tin_no: '123456789',
+            agency_employee_no: '001',
+            citizenship: 'dual_citizen',
+            dual_citizen_status: 'by_naturalization',
+            dual_citizenship_country: 'Hotel Transelvania',
+            residential_address: '123 Main St',
+            telephone_no: '123456789',
+            mobile_no: '09123456789',
+            email: 'john.doe@example.com',
+
+
+            spouse_lastname: 'Smith',
+            spouse_firstname: 'Jane',
+            spouse_middlename: 'Dandy',
+            spouse_extension: 'Jr.',
+            occupation: 'stripper',
+            spouse_occupation: 'Teacher',
+            employer: 'XYZ School',
+            business_address: '123 Education St, City, Country',
+            business_telephone: '1234567890',
+
+            father_lastname: 'Johnson',
+            father_firstname: 'Michael',
+            father_middlename: 'Diddy',
+            father_extension: 'Sr.',
+            mother_lastname: 'Johnson',
+            mother_firstname: 'Emily',
+            mother_middlename: 'Kevin',
+            mother_extension: 'Cooper',
+            children: [
+                { id: 'child_fullname_1', child_fullname: 'Child One', child_dob: '2015-01-01' },
+            ],
+        });
+    }, []);  */
 
     // Pages of the form
     const formPages = ['Personal Information', 'Family Background'];
 
-    const nextPage = () => setCurrentPage(currentPage + 1);
-    const prevPage = () => setCurrentPage(currentPage - 1);
-    const goToPage = (pageIndex) => setCurrentPage(pageIndex + 1);
+    // I didnt continue using formRef because I got stucked in error for like friggin 8 hours I hate my life
+
+    const formRef = useRef(null);
+
+    const nextPage = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const prevPage = () => {
+        setCurrentPage(currentPage - 1);
+    };
+
+    const goToPage = (pageIndex) => {
+        setCurrentPage(pageIndex + 1);
+    }
+
+
     // pages starts with 1 cause there is no case 0 on switch case
     // Use this function for enabled navigation in stepper
 
     const renderPage = () => {
         switch (currentPage) {
             case 1:
-                return <PersonalInfo nextPage={nextPage} formData={formData} setFormData={setFormData} />;
+                return (
+                    <PersonalInfo
+                        formData={formData}
+                        nextPage={nextPage}
+                        setFormData={setFormData}
+                        formRef={formRef}
+                    />
+                );
             case 2:
-                return <FamilyBg nextPage={nextPage} prevPage={prevPage} formData={formData} setFormData={setFormData} />;
+                return (
+                    <FamilyBg
+                        nextPage={nextPage}
+                        prevPage={prevPage}
+                        formData={formData}
+                        setFormData={setFormData}
+                        formRef={formRef}
+                    />
+                );
             case 3:
                 return <FormComplete />;
             default:

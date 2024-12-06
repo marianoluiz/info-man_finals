@@ -1,26 +1,14 @@
 import '../../styles/form.scss';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const FamilyBg = ({ nextPage, prevPage}) => {
+const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         nextPage();
     };
 
-    const [formData, setFormData] = useState({
-        spouse_lastname: '',
-        spouse_firstname: '',
-        children: [
-            {
-                id: `child_fullname_1`,
-                child_fullname: '',
-                dob: '',
-            },
-        ],
-    });
-
     // Adding More a Child Section
-    const addChild = (index) => {
+    const addChild = () => {
         const newIndex = formData.children.length + 1;
 
         setFormData({
@@ -30,7 +18,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                 {
                     id: `child_fullname_${newIndex}`,
                     child_fullname: '',
-                    dob: '',
+                    child_dob: '',
                 },
             ],
         });
@@ -76,11 +64,11 @@ const FamilyBg = ({ nextPage, prevPage}) => {
     return (
         <div className="form container">
             <p className="form__disclaimer">*Required Fields</p>
-            <form onSubmit={handleSubmit} className="row">
+            <form onSubmit={handleSubmit} ref={formRef} className="row">
                 {/* Spouse Details */}
                 <div className="mb-4 row">
                     <label htmlFor="spouse_lastname" className="col-sm-3">
-                        Spouse's Last Name
+                        Spouse&apos;s Last Name
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -99,7 +87,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
 
                 <div className="row mb-4">
                     <label htmlFor="spouse_firstname" className="col-sm-3">
-                        Spouse's First Name
+                        Spouse&apos;s First Name
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -107,6 +95,8 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="spouse_firstname"
                             name="spouse_firstname"
+                            value={formData.spouse_firstname}
+                            onChange={handleInputChange}
                             placeholder="Enter spouse's first name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Enter a valid name"
@@ -124,25 +114,27 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             id="spouse_extension"
                             name="spouse_extension"
                             placeholder="Enter spouse's extension name"
-                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
-                            title="Please enter a valid extension name"
+                            value={formData.spouse_extension}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
 
                 <div className="mb-5 row">
-                    <label htmlFor="spouse_middle_name" className="col-sm-3">
-                        Spouse's Middle Name
+                    <label htmlFor="spouse_middlename" className="col-sm-3">
+                        Spouse&apos;s Middle Name
                     </label>
                     <div className="col-sm-9">
                         <input
                             type="text"
                             className="form-control"
-                            id="spouse_middle_name"
-                            name="spouse_middle_name"
+                            id="spouse_middlename"
+                            name="spouse_middlename"
                             placeholder="Enter spouse's middle name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Enter a valid name"
+                            value={formData.spouse_middlename}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -158,22 +150,26 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             id="occupation"
                             name="occupation"
                             placeholder="Enter occupation"
+                             value={formData.occupation}
+                            onChange={handleInputChange}
                             required
                         />
                     </div>
                 </div>
 
                 <div className="mb-4 row">
-                    <label htmlFor="spouse_employer" className="col-sm-3">
+                    <label htmlFor="employer" className="col-sm-3">
                         Employer/Business Name
                     </label>
                     <div className="col-sm-9">
                         <input
                             type="text"
                             className="form-control"
-                            id="spouse_employer"
-                            name="spouse_employer"
+                            id="employer"
+                            name="employer"
                             placeholder="Enter employer/business name"
+                            value={formData.employer}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -189,9 +185,11 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                         <input
                             type="text"
                             className="form-control"
-                            id="spouse_business_address"
-                            name="spouse_business_address"
+                            id="business_address"
+                            name="business_address"
                             placeholder="Enter business address"
+                            value={formData.business_address}
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -204,11 +202,14 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                         <input
                             type="tel"
                             className="form-control"
-                            id="spouse_telephone"
-                            name="spouse_telephone"
+                            id="business_telephone"
+                            name="business_telephone"
                             placeholder="Enter telephone number"
                             pattern="^[0-9][0-9\s]*$"
                             title="Numbers are only allowed"
+                            value={formData.business_telephone}
+                            onChange={handleInputChange}
+
                         />
                     </div>
                 </div>
@@ -216,7 +217,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                 {/* Father's Details */}
                 <div className="mb-4 row">
                     <label htmlFor="father_lastname" className="col-sm-3">
-                        Father's Last Name*
+                        Father&apos;s Last Name*
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -224,17 +225,19 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="father_lastname"
                             name="father_lastname"
+                            value={formData.father_lastname}
                             placeholder="Enter father's last name"
                             required
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Enter a valid name"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
 
                 <div className="row mb-4">
                     <label htmlFor="father_firstname" className="col-sm-3">
-                        Father's First Name*
+                        Father&apos;s First Name*
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -242,14 +245,16 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="father_firstname"
                             name="father_firstname"
+                            value={formData.father_firstname}
                             placeholder="Enter father's first name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Enter a valid name"
+                            onChange={handleInputChange}
                             required
                         />
                     </div>
 
-                    <label htmlFor="father_extension_name" className="col-sm-2">
+                    <label htmlFor="father_extension" className="col-sm-2">
                         Extension Name
                         <p className="form__sub-label">(ex. Jr./Sr.)</p>
                     </label>
@@ -257,18 +262,18 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                         <input
                             type="text"
                             className="form-control"
-                            id="father_extension_name"
-                            name="father_extension_name"
+                            id="father_extension"
+                            name="father_extension"
+                            value={formData.father_extension}
                             placeholder="Enter father's extension name"
-                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
-                            title="Please enter a valid extension name"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
 
                 <div className="mb-5 row">
                     <label htmlFor="father_middlename" className="col-sm-3">
-                        Father's Middle Name
+                        Father&apos;s Middle Name
                     </label>
                     <div className="col-sm-9">
                         <input
@@ -276,9 +281,11 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="father_middlename"
                             name="father_middlename"
+                            value={formData.father_middlename}
                             placeholder="Enter father's middle name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid name"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -286,7 +293,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                 {/* Mother's Details */}
                 <div className="row mb-4">
                     <label htmlFor="mother_lastname" className="col-sm-3">
-                        Mother's Last Name*
+                        Mother&apos;s Last Name*
                         <p className="form__sub-label">(Maiden Name)</p>
                     </label>
                     <div className="col-sm-9">
@@ -295,17 +302,20 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="mother_lastname"
                             name="mother_lastname"
+                            value={formData.mother_lastname}
+
                             placeholder="Enter mother's last name"
                             required
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid name"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
 
                 <div className="row mb-4">
                     <label htmlFor="mother_firstname" className="col-sm-3">
-                        Mother's First Name*
+                        Mother&apos;s First Name*
                     </label>
                     <div className="col-sm-4">
                         <input
@@ -313,10 +323,13 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="mother_firstname"
                             name="mother_firstname"
+                                                        value={formData.mother_firstname}
+
                             placeholder="Enter mother's first name"
                             required
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid name"
+                            onChange={handleInputChange}
                         />
                     </div>
 
@@ -332,27 +345,29 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                             className="form-control"
                             id="mother_extension"
                             name="mother_extension"
+                            value={formData.mother_extension}
+                            onChange={handleInputChange}
                             placeholder="Enter mother's extension name"
-                            pattern="^[A-Za-z]*(\s[A-Za-z]+)*$"
-                            title="Please enter a valid extension name"
                         />
                     </div>
                 </div>
 
                 <div className="row">
-                    <label htmlFor="mother_middle_name" className="col-sm-3">
-                        Mother's Middle Name
+                    <label htmlFor="mother_middlename" className="col-sm-3">
+                        Mother&apos;s Middle Name
                         <p className="form__sub-label">(Maiden Name)</p>
                     </label>
                     <div className="col-sm-9">
                         <input
                             type="text"
                             className="form-control"
-                            id="mother_middle_name"
-                            name="mother_middle_name"
+                            id="mother_middlename"
+                            name="mother_middlename"
+                            value={formData.mother_middlename}
                             placeholder="Enter mother's middle name"
                             pattern="^[A-Za-z]+(\s[A-Za-z]+)*$"
                             title="Please enter a valid first name"
+                            onChange={handleInputChange}
                         />
                     </div>
                 </div>
@@ -366,7 +381,7 @@ const FamilyBg = ({ nextPage, prevPage}) => {
                                     htmlFor={`child_fullname_${index}`}
                                     className="col-sm-3"
                                 >
-                                    Child's Full Name
+                                    Child&apos;s Full Name
                                 </label>
                                 <div className="col-sm-9">
                                     <input
@@ -466,6 +481,15 @@ const FamilyBg = ({ nextPage, prevPage}) => {
             </form>
         </div>
     );
+};
+
+FamilyBg.propTypes = {
+    nextPage: PropTypes.func.isRequired,
+    prevPage: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    formRef: PropTypes.object.isRequired,
+    setFormData: PropTypes.func.isRequired
+
 };
 
 export default FamilyBg;

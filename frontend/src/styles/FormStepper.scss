@@ -6,12 +6,12 @@
 }
 
 .stepper__item {
-  cursor: pointer;
   padding: 5px 10px;
   transition: background-color 0.3s, color 0.3s;
   font-size: .9rem;
   color: $text-secondary-color;
-
+  background: transparent;
+  border: transparent;
   
   /* un-active styles  */
   border-bottom: 1.5px solid $light-dark-color;
