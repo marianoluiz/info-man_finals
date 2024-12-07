@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/header.scss';
 import { NavLink } from 'react-router-dom';
 import plmLogo from '../img/plm-logo.png';
@@ -41,7 +40,7 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link disabled" to="">
+                                <NavLink className="nav-link" to="/admin">
                                     Admin
                                 </NavLink>
                             </li>

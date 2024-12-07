@@ -1,7 +1,7 @@
-import Header from '../components/Header';
 import PropTypes from 'prop-types';
+import Header from '../components/Header';
 
-const MainLayout = ({ children }) => {
+const AdminLayout = ({ children }) => {
     return (
         <>
             <Header />
@@ -10,8 +10,8 @@ const MainLayout = ({ children }) => {
     );
 };
 
-MainLayout.propTypes ={
+AdminLayout.propTypes = {
     children: PropTypes.node.isRequired,
-}
+};
 
-export default MainLayout;
+export default AdminLayout;

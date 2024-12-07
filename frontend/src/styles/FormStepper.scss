@@ -12,12 +12,13 @@
   color: $text-secondary-color;
   background: transparent;
   border: transparent;
+  cursor: default;
   
   /* un-active styles  */
   border-bottom: 1.5px solid $light-dark-color;
 
   &:hover {
-
+    cursor: default;
   }
 
   &.active {
