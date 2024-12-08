@@ -1,51 +1,64 @@
-import { useState } from 'react';
+import { useSidebar } from '../context/SidebarContext';
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import '../styles/Sidebar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPeopleRoof, faUser, faSignOutAlt, faThLarge, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
-  const [showNavbar, setShowNavbar] = useState(true);
-
+  const [showSidebar, setShowSidebar] = useSidebar();
+  const { logout } = useAuth();
   const toggleNavbar = () => {
-    setShowNavbar(!showNavbar);
+    setShowSidebar(!showSidebar);
   };
 
+  useEffect(() => {
+    console.log(location.pathname)
+  }, [location.pathname]
+  )
+
   return (
-    <div className={`l-navbar ${showNavbar ? 'show' : ''}`} id="nav-bar">
-      <nav className="nav">
+    <div className={`l-sidebar ${showSidebar ? 'show' : ''}`} >
+      <nav className="sidebar_nav">
         <div>
-          <a href="#" className="nav_logo">
-            <i className="bx bx-layer nav_logo-icon"></i>
-            <span className="nav_logo-name">Bootstrap</span>
-          </a>
+          <div className="nav_logo">
+            <FontAwesomeIcon icon={faPeopleRoof} 
+              className={`nav_icon nav_logo-icon ${showSidebar ? '' : 'hidden'}`}
+            />
+            <span className={`nav_logo-name ${showSidebar ? '' : 'hidden'}`}>Admin</span>
+            <button 
+              className="sidebar__toggle"
+              onClick={toggleNavbar}
+            >
+              <FontAwesomeIcon 
+                icon={showSidebar ? faArrowLeft : faArrowRight}   
+                className={`nav_icon ${showSidebar ? 'faArrowLeft' : 'faArrowRight'}`
+              }
+            />
+            </button>
+
+          </div>
           <div className="nav_list">
-            <a href="#" className="nav_link active">
-              <i className="bx bx-grid-alt nav_icon"></i>
-              <span className="nav_name">Dashboard</span>
-            </a>
-            <a href="#" className="nav_link">
-              <i className="bx bx-user nav_icon"></i>
-              <span className="nav_name">Users</span>
-            </a>
-            <a href="#" className="nav_link">
-              <i className="bx bx-message-square-detail nav_icon"></i>
-              <span className="nav_name">Messages</span>
-            </a>
-            <a href="#" className="nav_link">
-              <i className="bx bx-bookmark nav_icon"></i>
-              <span className="nav_name">Bookmark</span>
-            </a>
-            <a href="#" className="nav_link">
-              <i className="bx bx-folder nav_icon"></i>
-              <span className="nav_name">Files</span>
-            </a>
-            <a href="#" className="nav_link">
-              <i className="bx bx-bar-chart-alt-2 nav_icon"></i>
-              <span className="nav_name">Stats</span>
-            </a>
+
+              <NavLink to="/admin/dashboard" className="nav_link">
+                <FontAwesomeIcon icon={faThLarge} className="nav_icon" />
+                <span className="nav_name">Dashboard</span>
+              </NavLink>
+
+
+              <NavLink to="/admin/manage" className="nav_link">
+                <FontAwesomeIcon icon={faUser} className="nav_icon" />
+                <span className="nav_name">Management</span>
+              </NavLink>
+
+ 
           </div>
         </div>
-        <a href="#" className="nav_link">
-          <i className="bx bx-log-out nav_icon"></i>
-          <span className="nav_name">SignOut</span>
+        <a href="#" className="nav_link" onClick={ logout }>
+          <FontAwesomeIcon icon={faSignOutAlt} className="nav_icon" />
+          <span className="nav_name"
+          >SignOut</span>
         </a>
       </nav>
     </div>
