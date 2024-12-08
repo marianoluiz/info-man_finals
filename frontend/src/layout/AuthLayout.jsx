@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-
+import Header from '../components/Header';
 const AuthLayout = ({ children }) => {
     return (
-        <div className="auth-layout">
-            <div className="auth-layout__content">
-                {children}
+        <>
+            <Header />
+            <div className="auth-layout">
+                <div className="auth-layout__content">{children}</div>
             </div>
-        </div>
+        </>
     );
 };
 
