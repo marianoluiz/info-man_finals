@@ -1,7 +1,21 @@
-.admin__dashboard {
+/* .admin__dashboard {
   margin-top: 64px;
 }
 
 .admin__management {
   margin-top: 64px;
+} */
+
+.admin__body {
+  margin-top: 4rem;
+}
+
+.header__wrapper {
+  flex: 1;
+  /* Take up the remaining space */
+  max-width: 80%;
+  /* Limit width to 80% of the container */
+  margin: 0 auto;
+  /* Center the wrapper */
+  overflow: hidden;
 }

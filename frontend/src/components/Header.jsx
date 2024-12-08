@@ -5,12 +5,13 @@ import '../styles/header.scss';
 
 const Header = () => {
     return (
-        <header>
+        <header className="header">
             <nav className="navbar navbar-dark navbar-expand-lg fixed-top py-0 px-md-5">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/home">
                         <img
                             src={plmLogo}
+                            className="nav__plm-logo"
                             height="54px"
                             width="56px"
                             alt="Pamantasan ng Lungsod ng Maynila"
