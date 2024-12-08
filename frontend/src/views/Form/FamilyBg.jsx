@@ -461,7 +461,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             className="btn btn-primary form__navbtn"
                             onClick={prevPage}
                         >
-                            Previous
+                            Previous Page
                         </button>
                     </div>
 
@@ -471,7 +471,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                             type="submit"
                             className="btn form__navbtn btn-primary"
                         >
-                            Submit
+                            Submit Form
                         </button>
                     </div>
                 </div>

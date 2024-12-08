@@ -1,6 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Header from '../components/Header';
+import PropTypes from 'prop-types';
 
 const MainLayout = ({ children }) => {
     return (
@@ -9,6 +8,10 @@ const MainLayout = ({ children }) => {
             <main>{children}</main>
         </>
     );
+};
+
+MainLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default MainLayout;

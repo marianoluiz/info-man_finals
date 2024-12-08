@@ -623,7 +623,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             to="/"
                             className="form__navbtn btn btn-primary"
                         >
-                            Back
+                            Back to Home
                         </NavLink>
                     </div>
 
@@ -634,7 +634,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             type="submit"
                             className="form__navbtn btn btn-primary"
                         >
-                            Next
+                            Next Page
                         </button>
                     </div>
                 </div>

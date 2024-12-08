@@ -70,15 +70,15 @@ const MultiPageForm = () => {
     // Automatically populate form fields on mount
     useEffect(() => {
         setFormData({
-            lastname: 'Doe',
+            lastname: 'Pork',
             firstname: 'John',
-            middlename: 'Arellano',
+            middlename: 'Skibidi',
             extension_name: 'Jr.',
             dob: '2005-12-10',
             pob: 'city',
             sex: 'male',
             civil_status: 'others',
-            civil_status_other: 'unsure', //other
+            civil_status_other: 'certified pork', //other
             height: '100',
             weight: '160',
             blood_type: 'o+',
@@ -94,30 +94,32 @@ const MultiPageForm = () => {
             residential_address: '123 Main St',
             telephone_no: '123456789',
             mobile_no: '09123456789',
-            email: 'john.doe@example.com',
+            email: 'john.pork@email.com',
 
-            spouse_lastname: 'Smith',
-            spouse_firstname: 'Jane',
-            spouse_middlename: 'Dandy',
+            spouse_lastname: 'Pork',
+            spouse_firstname: 'Maris',
+            spouse_middlename: 'Skibidi',
             spouse_extension: 'Jr.',
-            occupation: 'stripper',
-            spouse_occupation: 'Teacher',
+
+            spouse_occupation: 'Stripper',
+
+            occupation: 'Professional Eater',
             employer: 'XYZ School',
-            business_address: '123 Education St, City, Country',
+            business_address: '123 Diddy Mansion St, Country',
             business_telephone: '1234567890',
 
-            father_lastname: 'Johnson',
-            father_firstname: 'Michael',
-            father_middlename: 'Diddy',
+            father_lastname: 'Diddy',
+            father_firstname: 'Sean',
+            father_middlename: 'Pie',
             father_extension: 'Sr.',
-            mother_lastname: 'Johnson',
-            mother_firstname: 'Emily',
-            mother_middlename: 'Kevin',
+            mother_lastname: 'Emily',
+            mother_firstname: 'Motherfucker',
+            mother_middlename: 'Smiths',
             mother_extension: 'Cooper',
             children: [
                 {
                     id: 'child_fullname_1',
-                    child_fullname: 'Child One',
+                    child_fullname: 'HevAbi978',
                     child_dob: '2015-01-01',
                 },
             ],
