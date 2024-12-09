@@ -15,7 +15,10 @@ const App = () => {
                 <Route path="/home" element={<Home />} />
                 <Route path="/form" element={<MultiPageForm />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/admin" element={<Navigate to="/admin/dashboard" />} />
+                <Route
+                    path="/admin"
+                    element={<Navigate to="/admin/dashboard" />}
+                />
                 <Route
                     path="/admin/dashboard"
                     element={

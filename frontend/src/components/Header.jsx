@@ -4,8 +4,8 @@ import plmLogo from '../img/plm-logo.png';
 import '../styles/header.scss';
 
 const Header = () => {
-    return ( 
-        <header className="header"> 
+    return (
+        <header className="header">
             <nav className="navbar navbar-dark navbar-expand-lg fixed-top py-0 px-md-5">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/home">
