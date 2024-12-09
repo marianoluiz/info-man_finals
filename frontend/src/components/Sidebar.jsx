@@ -58,7 +58,7 @@ const Sidebar = () => {
         <a href="#" className="nav_link" onClick={ logout }>
           <FontAwesomeIcon icon={faSignOutAlt} className="nav_icon" />
           <span className="nav_name"
-          >SignOut</span>
+          >Sign Out</span>
         </a>
       </nav>
     </div>
