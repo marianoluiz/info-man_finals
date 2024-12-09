@@ -6,7 +6,7 @@ import MainLayout from '../../layout/MainLayout';
 import FormStepper from '../../components/FormStepper';
 import FormBanner from '../../components/FormBanner';
 
-const MultiPageForm = () => {
+const FormRenderer = () => {
     // Current Page state
     const [currentPage, setCurrentPage] = useState(1);
     const [formData, setFormData] = useState({
@@ -190,4 +190,4 @@ const MultiPageForm = () => {
     );
 };
 
-export default MultiPageForm;
+export default FormRenderer;
