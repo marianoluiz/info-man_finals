@@ -412,7 +412,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                                         id={`child_dob_${index}`}
                                         name={`child_dob_${index}`}
                                         value={
-                                            formData.children[index].child_dob
+                                            formData.children[index].dob
                                         }
                                         required={
                                             formData.children[index]

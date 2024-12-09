@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './views/Home.jsx';
-import MultiPageForm from './views/Form/MultiPageForm.jsx';
 import AdminDashboard from './views/Admin/AdminDashboard.jsx';
 import Login from './views/Auth/Login.jsx';
 import AdminManagement from './views/Admin/AdminManagement.jsx';
 import PrivateRoute from './components/PrivateRoute';
 import { SidebarProvider } from './context/SidebarContext';
+import FormRenderer from './views/Form/FormRenderer.jsx';
 
 const App = () => {
     return (
@@ -13,7 +13,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/form" element={<MultiPageForm />} />
+                <Route path="/form" element={<FormRenderer />} />
                 <Route path="/login" element={<Login />} />
                 <Route
                     path="/admin"

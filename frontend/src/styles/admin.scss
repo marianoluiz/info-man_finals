@@ -1,11 +1,53 @@
-
+@import 'variables';
 
 .admin__body {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 .dashboard__col {
 
 }
 
+.dashboard__title {
+  font-size: 4rem;
+  text-align: right;
+  /* Adjust size as needed */
+  font-weight: bold;
+  /* Optional, can adjust the font weight */
+  background: linear-gradient(to right, #8C8C8C, #262626);
+  /* Linear gradient from light black to black */
+  -webkit-background-clip: text;
+  /* Clip the background to the text */
+  color: transparent; // Make the text color transparent so the gradient shows
+}
 
+
+.card__gender {
+  height: 100%;
+}
+
+.gender__graph-wrapper {
+  height: 40vh;
+  padding: 1rem;
+}
+
+.num__student {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.age__graph-wrapper {
+  height: 15rem;
+  width: 100%;
+}
+
+.civil__graph-wrapper {
+  height: 12rem;
+  width: 100%;
+}
+
+.citizenship__graph-wrapper {
+  height: 12rem;
+  width: 100%;
+}
