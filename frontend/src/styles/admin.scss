@@ -51,3 +51,35 @@
   height: 12rem;
   width: 100%;
 }
+
+// Admin Management
+
+.mgmt__title {
+  font-size: 4rem;
+  text-align: right;
+  font-weight: bold;
+  background: linear-gradient(to right, #8C8C8C, #262626);  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.mgmt__text {
+  font-size: .8rem;
+  margin-bottom: .5rem;
+}
+
+.mgmt__no-padding {
+  padding: 0;
+}
+
+// Override bootstrap style
+.table th {
+  font-weight: normal;
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+
+.admin__tbl {
+  display: block;
+  font-size: .8rem;
+  overflow-x: auto;
+}

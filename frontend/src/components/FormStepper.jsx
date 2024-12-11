@@ -2,14 +2,22 @@ import PropTypes from 'prop-types';
 import '../styles/FormStepper.scss';
 
 /* these props are from MultiPageForm */
-const FormStepper = ({ formPages, currentPage, disabled, onPageClick }) => {
+const FormStepper = ({
+    formPages,
+    currentPage,
+    disabled,
+    adminStyles,
+    onPageClick,
+    cursorStyle,
+}) => {
     return (
-        <div className="stepper container">
+        <div className="stepper container" style={adminStyles}>
             {formPages.map((pageStep, index) => (
                 <button
                     key={index}
-                    className={`stepper__item ${index === currentPage ? 'active' : ''}`}
-                    // this onclick puts up the index + 1 to the current page
+                    className={`stepper__item ${index === currentPage ? 'active' : ''} `}
+                    onClick={() => onPageClick(index + 1)} //add 1 cuz i subtract 1 when i passed this from admin
+                    style={cursorStyle}
                 >
                     {/* If on Completion page, dont render pageSteps Array*/}
                     {disabled ? '' : pageStep}
@@ -24,9 +32,12 @@ const FormStepper = ({ formPages, currentPage, disabled, onPageClick }) => {
 // required maker?
 FormStepper.propTypes = {
     formPages: PropTypes.arrayOf(PropTypes.string).isRequired,
-    currentPage: PropTypes.number.isRequired,
-    onPageClick: PropTypes.func.isRequired,
-    disabled: PropTypes.bool.isRequired,
+    currentPage: PropTypes.number,
+    onPageClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    adminStyles: PropTypes.object,
+    onTableClick: PropTypes.func,
+    cursorStyle: PropTypes.object,
 };
 
 export default FormStepper;
