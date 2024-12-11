@@ -19,3 +19,9 @@
 - MySQL 
 
 EXPECTED DL: 12/17/2024
+
+## Steps to run Frontend:
+
+- `cd frontend`
+- `npm install`
+- `npm run dev`
