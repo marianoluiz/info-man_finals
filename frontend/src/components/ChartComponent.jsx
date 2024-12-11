@@ -74,13 +74,19 @@ const ageLineOptions = {
                 display: true,
                 text: 'Number of Students', // Label for the Y-axis
             },
+            ticks: {
+                beginAtZero: true, // Start the scale at 0
+                callback: function (value) {
+                    return Number.isInteger(value) ? value : null; // Show only whole numbers
+                },
+            },
         },
     },
 };
 
 // Bar Graph Options for Citizenship
 const citizenshipBarOptions = {
-    maintainAspectRatio: false, 
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
         legend: {
@@ -128,6 +134,12 @@ const civilStatusBarOptions = {
                 display: true,
                 text: 'Number of Students', // X-axis label (now corresponds to the count of students)
             },
+            ticks: {
+                beginAtZero: true, // Start the scale at 0
+                callback: function (value) {
+                    return Number.isInteger(value) ? value : null; // Show only whole numbers
+                },
+            },
         },
     },
 };
@@ -139,13 +151,16 @@ const ChartComponent = ({ type, data, options }) => {
         case 'pie':
             return <Pie data={data} options={options} />;
         case 'line':
-            return <Line data={data} options={options}/>;
+            return <Line data={data} options={options} />;
         default:
             return null;
     }
 };
 
-
-
 export default ChartComponent;
-export { chartOptions, ageLineOptions, citizenshipBarOptions, civilStatusBarOptions };
+export {
+    chartOptions,
+    ageLineOptions,
+    citizenshipBarOptions,
+    civilStatusBarOptions,
+};

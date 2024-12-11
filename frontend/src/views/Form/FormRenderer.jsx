@@ -120,7 +120,7 @@ const FormRenderer = () => {
                 {
                     id: 'child_fullname_1',
                     child_fullname: 'HevAbi978',
-                    child_dob: '2015-01-01',
+                    dob: '2015-01-01',
                 },
             ],
         });
@@ -141,9 +141,10 @@ const FormRenderer = () => {
         setCurrentPage(currentPage - 1);
     };
 
+    /* 
     const goToPage = (pageIndex) => {
         setCurrentPage(pageIndex + 1);
-    };
+    }; */
 
     // pages starts with 1 cause there is no case 0 on switch case
     // Use this function for enabled navigation in stepper
@@ -182,7 +183,7 @@ const FormRenderer = () => {
             <FormStepper
                 formPages={formPages}
                 currentPage={currentPage - 1}
-                onPageClick={goToPage} // Use this prop for enabled navigation in stepper
+                //onPageClick={goToPage} - Use this prop for enabled navigation in stepper
                 disabled={currentPage === 3}
             />
             {renderPage()}

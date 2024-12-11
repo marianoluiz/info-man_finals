@@ -139,7 +139,7 @@ const AdminDashboard = () => {
                 label: 'Age Data Graph', // Dataset label
                 data: Object.values(ageStats), // Y-axis data corresponding to the labels
                 fill: false, // Do not fill the area under the line
-                borderColor: 'rgb(255, 99, 132)', 
+                borderColor: 'rgb(255, 99, 132)',
                 tension: 0.1, // Smoothness of the line (lower value = less curve)
             },
         ],
