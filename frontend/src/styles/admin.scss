@@ -82,4 +82,21 @@
   display: block;
   font-size: .8rem;
   overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.action__cell {
+  position: sticky; 
+  right: 0; /* Stick to the right edge */
+  z-index: 2; /* Ensure it's above other cells */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2) !important; /* Add shadow on the left edge */
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.action__cell button {
+  background: none;
+  border: transparent;
+  display: inline-block; /* Aligns buttons horizontally */
+  cursor: pointer; /* Changes cursor to pointer on hover */
 }

@@ -3,6 +3,9 @@ import '../../styles/admin.scss';
 import FormStepper from '../../components/FormStepper';
 import { useState, useEffect } from 'react';
 import { fetchStudentData } from '../../api/StudentApi.js';
+import delete__btn from '../../img/delete__btn.svg'
+import edit__btn from '../../img/edit__btn.svg'
+
 
 const AdminMangement = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -123,6 +126,7 @@ const AdminMangement = () => {
                                         {header}
                                     </th>
                                 ))}
+                                <th className='action__cell'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,6 +154,10 @@ const AdminMangement = () => {
                                           <td>{data.telephone_no}</td>
                                           <td>{data.mobile_no}</td>
                                           <td>{data.email}</td>
+                                          <td className="action__cell">
+                                                <button><img src={edit__btn} alt='Edit'/></button>
+                                                <button ><img src={delete__btn} alt='Delete'/></button>
+                                          </td>
                                       </tr>
                                   ))
                                 : formData.map((data, index) => (
@@ -180,7 +188,12 @@ const AdminMangement = () => {
                                                   )
                                                   .join(', ')}
                                           </td>
+                                          <td className="action__cell">
+                                            <button><img src={edit__btn} alt='Edit'/></button>
+                                            <button ><img src={delete__btn} alt='Delete'/></button>
+                                          </td>
                                       </tr>
+                                      
                                   ))}
                         </tbody>
                     </table>
