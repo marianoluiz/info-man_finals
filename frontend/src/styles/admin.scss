@@ -19,6 +19,13 @@
   -webkit-background-clip: text;
   /* Clip the background to the text */
   color: transparent; // Make the text color transparent so the gradient shows
+  
+  @media (max-width: 768px ) {
+    & {
+      font-size: 2.2rem;
+      text-align: left;
+    }
+  }
 }
 
 
@@ -58,8 +65,15 @@
   font-size: 4rem;
   text-align: right;
   font-weight: bold;
-  background: linear-gradient(to right, #8C8C8C, #262626);  -webkit-background-clip: text;
+  background: linear-gradient(to right, #acacac, #262626);
+  -webkit-background-clip: text;
   color: transparent;
+
+  @media (max-width: 768px) {
+    & {
+      font-size: 2.2rem;
+    }
+  }
 }
 
 .mgmt__text {
@@ -88,10 +102,8 @@
 .action__cell {
   position: sticky; 
   right: 0; /* Stick to the right edge */
-  z-index: 2; /* Ensure it's above other cells */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2) !important; /* Add shadow on the left edge */
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.2) !important; /* Add shadow on the left edge */
   white-space: nowrap;
-  vertical-align: middle;
 }
 
 .action__cell button {
@@ -99,4 +111,22 @@
   border: transparent;
   display: inline-block; /* Aligns buttons horizontally */
   cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.action__cell-th {
+  padding-left: 1.2rem !important;
+  padding-right: 1.2rem !important;
+
+  @media (max-width: 768px ){
+    & {
+    padding-left: .4rem !important;
+    padding-right: .4rem !important;
+    }
+  }
+}
+
+.action__cell-td {
+  vertical-align: middle;
+    /* for table */
+  text-align: center;
 }

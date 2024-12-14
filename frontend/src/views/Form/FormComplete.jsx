@@ -143,7 +143,7 @@ const FormComplete = ({ formData }) => {
                                     <li key={index}>
                                         <strong>Child {index + 1}:</strong>{' '}
                                         {child.child_fullname}, Date of Birth:{' '}
-                                        {child.child_dob}
+                                        {child.dob}
                                     </li>
                                 ))}
                             </ul>

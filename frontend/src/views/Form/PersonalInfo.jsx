@@ -438,13 +438,13 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             onChange={(e) => {
                                 handleInputChange(e);
                                 setShowOthersCitizenship(
-                                    e.target.value === 'dual_citizen',
+                                    e.target.value === 'dual citizen',
                                 );
                             }}
                         >
                             <option value="">Select</option>
                             <option value="filipino">Filipino</option>
-                            <option value="dual_citizen">
+                            <option value="dual citizen">
                                 Dual Citizenship
                             </option>
                         </select>
@@ -454,6 +454,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                                 {/* Radio */}
                                 <div className="form__citizenship-radio d-flex col-sm-4">
                                     <div className="form-check">
+                                        {/* by birth */}
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -476,6 +477,7 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                                     </div>
 
                                     <div className="form-check mx-3">
+                                        {/* by naturalization */}
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -536,6 +538,28 @@ const PersonalInfo = ({ formData, setFormData, nextPage, formRef }) => {
                             placeholder="Enter your residential address"
                             required
                             value={formData.residential_address}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                </div>
+
+                {/* Permanent Address */}
+                <div className="mb-4 row">
+                    <label
+                        htmlFor="permanent_address"
+                        className="col-sm-3 col-form-label"
+                    >
+                        Permanent Address *
+                    </label>
+                    <div className="col-sm-9">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="permanent_address"
+                            name="permanent_address"
+                            placeholder="Enter your permanent address"
+                            required
+                            value={formData.permanent_address}
                             onChange={handleInputChange}
                         />
                     </div>

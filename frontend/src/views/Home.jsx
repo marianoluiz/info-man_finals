@@ -5,7 +5,8 @@ const Home = () => {
     return (
         <>
             <MainLayout>
-                <div className="home__bg d-flex align-items-center">
+                <div className="home d-flex align-items-center">
+                    <div className="home__bg"></div>
                     <div className="home__left">
                         <h1 className="home__main-text">
                             Welcome to Pamantasan ng Lungsod ng Maynila

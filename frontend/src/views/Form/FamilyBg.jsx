@@ -410,7 +410,7 @@ const FamilyBg = ({ nextPage, prevPage, formData, setFormData, formRef }) => {
                                         type="date"
                                         className="form-control"
                                         id={`child_dob_${index}`}
-                                        name={`child_dob_${index}`}
+                                        name={`dob`}
                                         value={formData.children[index].dob}
                                         required={
                                             formData.children[index]

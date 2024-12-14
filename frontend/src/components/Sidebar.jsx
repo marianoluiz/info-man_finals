@@ -1,6 +1,6 @@
 import { useSidebar } from '../context/SidebarContext';
-import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import {  useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../styles/Sidebar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -15,6 +15,27 @@ import { useAuth } from '../context/AuthContext';
 
 const Sidebar = () => {
     const [showSidebar, setShowSidebar] = useSidebar();
+
+    // In, small screen, minimize sidebar
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 901) {
+                setShowSidebar(false);
+            } else {
+                setShowSidebar(true);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize); // handleResize function will be called whenever the user resizes the browser window.
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const { logout } = useAuth();
     const toggleNavbar = () => {
         setShowSidebar(!showSidebar);
