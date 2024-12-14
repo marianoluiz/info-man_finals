@@ -1,12 +1,29 @@
 @import 'variables';
 
-.home__bg {
-  background-image: url('../img/plm-hero_1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.home {
   height: 100vh;
   width: 100%;
+}
+
+.home__bg {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-image: url('../img/plm-hero.jpg');
+  background-size: cover;
+  
+  background-repeat: no-repeat;
+  filter: brightness(1);
+  opacity: .9;
+
+  @media (max-width: 768px ) {
+    background-position: center;
+  }
+
+  @media (min-width: 769px) {
+    transform: scale(1);
+    /* Moves the background image slightly to the right */
+  }
 }
 
 .home__left {
@@ -15,7 +32,7 @@
   padding: 3em 2.5em;
 
   /* glassmorphism */
-  background: rgba( 255, 255, 255, 0.80 );
+  background: rgba( 255, 255, 255, 0.6 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );

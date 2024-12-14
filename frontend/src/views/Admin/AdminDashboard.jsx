@@ -13,7 +13,7 @@ import ChartComponent, {
 const AdminDashboard = () => {
     const [studentData, setStudentData] = useState([]);
     const [totalStudents, setTotalStudents] = useState(0); // Use state for totalStudents
-    const [genderStats, setGenderStats] = useState({ male: 0, female: 0 });
+    const [sexStats, setSexStats] = useState({ male: 0, female: 0 });
     const [citizenshipStats, setCitizenshipStats] = useState({});
     const [civilStatusStats, setCivilStatusStats] = useState({});
     const [ageStats, setAgeStats] = useState({});
@@ -35,17 +35,17 @@ const AdminDashboard = () => {
     // Calculate statistics
     useEffect(() => {
         const calculateStats = () => {
-            const genderStats = { male: 0, female: 0 };
+            const sexStats = { male: 0, female: 0 };
             const citizenshipStats = {};
             const civilStatusStats = {};
             const ageStats = {};
 
             studentData.forEach((student) => {
                 // Gender stats
-                if (student.gender === 'male') {
-                    genderStats.male += 1;
-                } else if (student.gender === 'female') {
-                    genderStats.female += 1;
+                if (student.sex === 'male') {
+                    sexStats.male += 1;
+                } else if (student.sex === 'female') {
+                    sexStats.female += 1;
                 }
 
                 // Citizenship stats
@@ -63,14 +63,15 @@ const AdminDashboard = () => {
                 }
 
                 // Age stats
-                if (ageStats[student.age]) {
-                    ageStats[student.age] += 1;
+                const age = calculateAge(student.dob);
+                if (ageStats[age]) {
+                    ageStats[age] += 1;
                 } else {
-                    ageStats[student.age] = 1;
+                    ageStats[age] = 1;
                 }
             });
 
-            setGenderStats(genderStats);
+            setSexStats(sexStats);
             setCitizenshipStats(citizenshipStats);
             setCivilStatusStats(civilStatusStats);
             setAgeStats(ageStats);
@@ -80,13 +81,31 @@ const AdminDashboard = () => {
         calculateStats();
     }, [studentData]);
 
+    // Helper function to calculate age
+    const calculateAge = (dob) => {
+        const birthDate = new Date(dob);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+
+        // If the birth month hasn't occurred yet this year, or it's the birth month but the birth day hasn't occurred yet, subtract 1 from the age
+        if (
+            monthDifference < 0 ||
+            (monthDifference === 0 && today.getDate() < birthDate.getDate())
+        ) {
+            age--;
+        }
+
+        return age;
+    };
+
     // Gender - Pie Chart
     const genderPieData = {
         labels: ['Male', 'Female'], // Labels for each slice
         datasets: [
             {
                 label: 'Gender Distribution',
-                data: [genderStats.male, genderStats.female], // Values for each slice
+                data: [sexStats.male, sexStats.female], // Values for each slice
                 backgroundColor: ['#40BBD0', '#D040C9'], // Male: blue, Female: red
                 hoverOffset: 4,
             },
@@ -148,7 +167,7 @@ const AdminDashboard = () => {
     // test
     useEffect(() => {
         console.log('student data: ', studentData);
-        console.log('genderStats: ', genderStats);
+        console.log('sexStats: ', sexStats);
         console.log('citizenshipStats: ', citizenshipStats);
         console.log('civilStatusStats: ', civilStatusStats);
         console.log('studentData.length: ', studentData.length);
@@ -162,7 +181,7 @@ const AdminDashboard = () => {
                     <div className="col-sm-9 dashboard__col">
                         {/* 1st col, 1st row */}
                         <div className="row">
-                            <div className="dashboard__col dashboard__total-stud col-sm-6">
+                            <div className="dashboard__col dashboard__total-stud col-sm-6 p-4">
                                 <div className="card card__total-stud">
                                     <div className="card-body">
                                         <p className="card-text">
@@ -246,7 +265,7 @@ const AdminDashboard = () => {
                     </div>
 
                     {/* 2nd col */}
-                    <div className="dashboard__col dashboard__gender col-sm-3">
+                    <div className="dashboard__col dashboard__gender col-sm-3 py-4">
                         <div className="card card__gender">
                             <p className="card-title pt-3 text-center">
                                 Gender Pie Chart
@@ -270,7 +289,7 @@ const AdminDashboard = () => {
                                             className="fs-4 mb-0 fw-bold"
                                             style={{ color: '#40BBD0' }}
                                         >
-                                            {genderStats.male}
+                                            {sexStats.male}
                                         </p>
                                     </li>
                                     <li className="mb-3">
@@ -281,7 +300,7 @@ const AdminDashboard = () => {
                                             className="fs-4 mb-0 fw-bold"
                                             style={{ color: '#D040C9' }}
                                         >
-                                            {genderStats.female}
+                                            {sexStats.female}
                                         </p>
                                     </li>
                                 </ul>

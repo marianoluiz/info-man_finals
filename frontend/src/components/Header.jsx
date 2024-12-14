@@ -29,7 +29,7 @@ const Header = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-md-auto">
+                        <ul className="navbar-nav ms-md-auto text-center">
                             <li className="nav-item me-md-3">
                                 {/* NavLink has built in active class adder / remover */}
                                 <NavLink

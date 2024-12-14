@@ -5,63 +5,68 @@ import FormComplete from './FormComplete';
 import MainLayout from '../../layout/MainLayout';
 import FormStepper from '../../components/FormStepper';
 import FormBanner from '../../components/FormBanner';
+import { useLocation } from 'react-router-dom';
 
 const FormRenderer = () => {
+
+     const location = useLocation();
+     // checks if formData is passed via the location.state. If it is, initialFormData is populated with this data.
+     const initialFormData = location.state?.formData || {
+         lastname: '',
+         firstname: '',
+         middlename: '',
+         extension_name: '',
+         dob: '',
+         pob: '',
+         sex: '',
+         civil_status: '',
+         height: '',
+         weight: '',
+         blood_type: '',
+         gsis_no: '',
+         pagibig_no: '',
+         philhealth_no: '',
+         sss_no: '',
+         tin_no: '',
+         agency_employee_no: '',
+         citizenship: '',
+         residential_address: '',
+         permanent_address: '',
+         telephone_no: '',
+         mobile_no: '',
+         email: '',
+         civil_status_other: '', // Added for "Other" civil status
+         dual_citizen_status: '', // Added for dual citizenship
+         dual_citizenship_country: '', // Added for dual citizenship country
+         // Page 2: Family Background
+         spouse_lastname: '',
+         spouse_firstname: '',
+         spouse_middlename: '',
+         spouse_extension: '',
+         occupation: '',
+         employer: '',
+         business_address: '',
+         business_telephone_no: '',
+         father_lastname: '',
+         father_firstname: '',
+         father_middlename: '',
+         father_extension: '',
+         mother_lastname: '',
+         mother_firstname: '',
+         mother_middlename: '',
+         mother_extension: '',
+         children: [
+             {
+                 id: `child_fullname_1`,
+                 child_fullname: '',
+                 dob: '',
+             },
+         ],
+     };
+     
     // Current Page state
     const [currentPage, setCurrentPage] = useState(1);
-    const [formData, setFormData] = useState({
-        lastname: '',
-        firstname: '',
-        middlename: '',
-        extension_name: '',
-        dob: '',
-        pob: '',
-        sex: '',
-        civil_status: '',
-        height: '',
-        weight: '',
-        blood_type: '',
-        gsis_no: '',
-        pagibig_no: '',
-        philhealth_no: '',
-        sss_no: '',
-        tin_no: '',
-        agency_employee_no: '',
-        citizenship: '',
-        residential_address: '',
-        telephone_no: '',
-        mobile_no: '',
-        email: '',
-        civil_status_other: '', // Added for "Other" civil status
-        dual_citizen_status: '', // Added for dual citizenship
-        dual_citizenship_country: '', // Added for dual citizenship country
-
-        // Page 2: Family Background
-        spouse_lastname: '',
-        spouse_firstname: '',
-        spouse_middlename: '',
-        spouse_extension: '',
-        occupation: '',
-        employer: '',
-        business_address: '',
-        business_telephone_no: '',
-
-        father_lastname: '',
-        father_firstname: '',
-        father_middlename: '',
-        father_extension: '',
-        mother_lastname: '',
-        mother_firstname: '',
-        mother_middlename: '',
-        mother_extension: '',
-        children: [
-            {
-                id: `child_fullname_1`,
-                child_fullname: '',
-                dob: '',
-            },
-        ],
-    });
+    const [formData, setFormData] = useState(initialFormData);
 
     useEffect(() => {
         console.log('formData:', formData);
@@ -88,10 +93,11 @@ const FormRenderer = () => {
             sss_no: '987654321',
             tin_no: '123456789',
             agency_employee_no: '001',
-            citizenship: 'dual_citizen',
+            citizenship: 'dual citizen',
             dual_citizen_status: 'by_naturalization',
             dual_citizenship_country: 'Hotel Transelvania',
             residential_address: '123 Main St',
+            permanent_address: '123 Main St',
             telephone_no: '123456789',
             mobile_no: '09123456789',
             email: 'john.pork@email.com',
