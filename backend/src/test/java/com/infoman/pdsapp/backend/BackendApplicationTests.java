@@ -1,10 +1,10 @@
-package com.infoman.pdsapp.infoman;
+package com.infoman.pdsapp.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InfomanApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {
