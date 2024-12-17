@@ -25,3 +25,11 @@ EXPECTED DL: 12/17/2024
 - `cd frontend`
 - `npm install`
 - `npm run dev`
+
+## Steps to run Backend:
+
+- `cd backend`
+- `mvnw clean install`
+- `mvnw spring-boot:run`
+
+Note: Make sure to open the WebConfig.java class to ensure that the frontend port you are using is not blocked by the backend server.
