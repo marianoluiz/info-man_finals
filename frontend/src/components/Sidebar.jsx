@@ -1,5 +1,5 @@
 import { useSidebar } from '../context/SidebarContext';
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/Sidebar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,8 +21,6 @@ const Sidebar = () => {
         const handleResize = () => {
             if (window.innerWidth < 901) {
                 setShowSidebar(false);
-            } else {
-                setShowSidebar(true);
             }
         };
 

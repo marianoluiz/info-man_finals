@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const SidebarContext = createContext();
 
@@ -8,6 +8,12 @@ export const useSidebar = () => {
 
 export const SidebarProvider = ({ children }) => {
     const [showSidebar, setShowSidebar] = useState(true);
+
+    useEffect( () =>
+        {
+            console.log("showSidebar: ", showSidebar);
+        }
+    )
 
     return (
         <SidebarContext.Provider value={[showSidebar, setShowSidebar]}>
