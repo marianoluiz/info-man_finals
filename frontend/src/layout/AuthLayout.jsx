@@ -1,18 +1,18 @@
-import PropTypes from 'prop-types';
-import Header from '../components/Header';
+import PropTypes from "prop-types";
+import Header from "../components/Header";
 const AuthLayout = ({ children }) => {
-    return (
-        <>
-            <Header />
-            <div className="auth-layout">
-                <div className="auth-layout__content">{children}</div>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <div className="auth-layout">
+        <div className="auth-layout__content">{children}</div>
+      </div>
+    </>
+  );
 };
 
 AuthLayout.propTypes = {
-    children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default AuthLayout;
