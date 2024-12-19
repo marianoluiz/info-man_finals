@@ -1,8 +1,10 @@
+
 import { useSidebar } from "../context/SidebarContext";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Sidebar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faPeopleRoof,
   faUser,
@@ -16,15 +18,16 @@ import { useAuth } from "../context/AuthContext";
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useSidebar();
 
-  // In, small screen, minimize sidebar
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 901) {
-        setShowSidebar(false);
-      } else {
-        setShowSidebar(true);
-      }
-    };
+
+    // In, small screen, minimize sidebar
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 901) {
+                setShowSidebar(false);
+            }
+        };
+
+        handleResize();
 
     handleResize();
 
