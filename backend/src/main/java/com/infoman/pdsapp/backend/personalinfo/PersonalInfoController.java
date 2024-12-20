@@ -5,21 +5,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/personalinfo")
 public class PersonalInfoController {
 
-    private final PersonalInfoRepository personalInfoRepository;
+    private PersonalInfoService personService;
 
-    public PersonalInfoController(PersonalInfoRepository personalInfoRepository) {
-        this.personalInfoRepository = personalInfoRepository;
+    public PersonalInfoController(PersonalInfoService ps) {
+        this.personService = ps;
     }
 
     @GetMapping("")
-    List<PersonalInfo> findAll() {
-        return personalInfoRepository.findAll();
+    public ResponseEntity<List<PersonalInfo>> getAllPersonDetails() {
+        return ResponseEntity.ok(personService.getAllPersonDetails());
     }
 
 }

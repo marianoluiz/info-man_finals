@@ -1,21 +1,21 @@
 package com.infoman.pdsapp.backend.personalinfo;
 
 public class Children {
-    private String id;
+    private Long id;
     private String child_fullname;
     private String dob;
 
-    public Children(String id, String child_fullname, String dob) {
+    public Children(Long id, String child_fullname, String dob) {
         this.id = id;
         this.child_fullname = child_fullname;
         this.dob = dob;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
