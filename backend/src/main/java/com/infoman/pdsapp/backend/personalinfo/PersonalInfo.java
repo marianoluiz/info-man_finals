@@ -1,6 +1,5 @@
 package com.infoman.pdsapp.backend.personalinfo;
 
-import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

@@ -1,7 +1,5 @@
 package com.infoman.pdsapp.backend.personalinfo;
 
-import org.hibernate.type.descriptor.jdbc.JdbcTypeFamilyInformation.Family;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
