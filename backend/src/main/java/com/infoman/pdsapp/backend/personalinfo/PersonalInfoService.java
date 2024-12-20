@@ -1,8 +1,6 @@
 package com.infoman.pdsapp.backend.personalinfo;
 
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,6 @@ public class PersonalInfoService {
     }
 
     public List<PersonalInfo> getAllPersonDetails() {
-        List<PersonalInfo> persons = personRepository.findAllWithRelations();
-        return persons.stream().distinct().collect(Collectors.toList());
+        return personRepository.findAllWithRelations();
     }
 }
